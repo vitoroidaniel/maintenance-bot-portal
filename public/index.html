@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>REKKA SOFTWARE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Kurtex — Truck Fleet Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
     :root {
       --bg:       #080a0e;
@@ -21,7 +21,7 @@
       --muted2:   #9ca3af;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
 
     body {
       background: var(--bg);
@@ -66,6 +66,7 @@
 
     /* NAV */
     nav {
+      padding-top: max(20px, env(safe-area-inset-top));
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 500;
@@ -79,6 +80,7 @@
     nav.scrolled {
       background: rgba(8,10,14,0.9);
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom-color: var(--border);
     }
     .nav-logo {
@@ -504,6 +506,8 @@
     .form-group input,
     .form-group select,
     .form-group textarea {
+      -webkit-appearance: none;
+      font-size: max(16px, 0.9rem); /* prevents iOS zoom */
       width: 100%;
       background: var(--bg2);
       border: 1px solid var(--border);
@@ -591,16 +595,39 @@
     .fade-up.visible { opacity:1; transform: translateY(0); }
 
     @media (max-width: 900px) {
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
-      .hero { padding: 120px 24px 60px; }
-      section { padding: 80px 24px; }
+      .nav-cta { padding: 8px 16px; font-size: 0.75rem; }
+      .hero { padding: 100px 24px 60px; }
+      .hero h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
+      .hero-sub { font-size: 0.95rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .btn-primary, .btn-ghost { width: 100%; text-align: center; padding: 14px 24px; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; padding-top: 32px; margin-top: 48px; }
+      .stat-num { font-size: 1.8rem; }
+      section { padding: 72px 24px; }
       .how-inner { grid-template-columns: 1fr; gap: 48px; }
+      .terminal { font-size: 0.7rem; }
+      .terminal-body { padding: 16px; }
       .features-grid { grid-template-columns: 1fr; }
+      .feature-card { padding: 28px 24px; }
       .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .form-wrap { padding: 28px 20px; }
       .form-row { grid-template-columns: 1fr; }
-      .hero-stats { gap: 32px; flex-wrap: wrap; }
-      footer { flex-direction: column; gap: 16px; text-align: center; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+      .section-title { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: clamp(2.2rem, 14vw, 3rem); }
+      .hero-badge { font-size: 0.65rem; }
+      .hero-stats { gap: 20px; }
+      .stat-num { font-size: 1.6rem; }
+      .contact-details { gap: 16px; }
+      .contact-icon { width: 36px; height: 36px; font-size: 0.9rem; }
+      .terminal-body { padding: 12px; line-height: 1.8; }
     }
   </style>
 </head>
@@ -625,9 +652,9 @@
     <div class="hero-grid"></div>
     <div class="hero-glow"></div>
 
-    <div class="hero-badge">AI-POWERED · REKKA SOFTWARE · v2.0</div>
+    <div class="hero-badge">AI-POWERED · FLEET INTELLIGENCE · v2.0</div>
 
-    <h1>REKKA<br/><em>SOFTWARE</h1>
+    <h1>Truck Fleet<br/><em>Maintenance</em><br/>Intelligence</h1>
 
     <p class="hero-sub">
       Real-time alert detection, automated dispatch, and AI-powered issue scanning
@@ -843,8 +870,8 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">REKKA<span>SOFTWARE</span></div>
-    <div class="footer-text">© 2026 · REKKA SOFTWARE</div>
+    <div class="footer-logo">KURT<span>EX</span></div>
+    <div class="footer-text">© 2026 · Truck Fleet Intelligence System</div>
     <div class="footer-links">
       <a href="https://t.me/danikav">Telegram</a>
       <a href="https://t.me/kurtextalertbot">Alert Bot</a>
