@@ -81,7 +81,35 @@ function initForm(){
   });
 }
 
-initNav(); initReveal(); initFilters(); initForm(); initIcons(); loadGithub();
+
+function initLiveMotion(){
+  const beeLayer=document.querySelector('.bee-layer');
+  if(!beeLayer || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let raf=0;
+  window.addEventListener('scroll',()=>{
+    if(raf)return;
+    raf=requestAnimationFrame(()=>{
+      const y=Math.min(window.scrollY,1600);
+      beeLayer.style.transform=`translate3d(${Math.sin(y/260)*4}px,${Math.cos(y/330)*3}px,0)`;
+      raf=0;
+    });
+  },{passive:true});
+}
+
+function initNavSpy(){
+  const links=$$('#navLinks a');
+  const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if(!('IntersectionObserver' in window)) return;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      links.forEach(a=>a.classList.toggle('current',a.getAttribute('href')==='#'+entry.target.id));
+    });
+  },{rootMargin:'-42% 0px -48% 0px',threshold:0});
+  sections.forEach(s=>io.observe(s));
+}
+
+initNav(); initReveal(); initFilters(); initForm(); initIcons(); loadGithub(); initLiveMotion(); initNavSpy();
 
 
 // Price CTA pre-fills the project type without adding friction.
