@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#eee8dc">
+  <meta name="theme-color" content="#f3eee3">
   <title>Daniel — Rekka Software</title>
-  <meta name="description" content="Daniel at Rekka Software — websites, Telegram bots, automation and custom software built with care.">
+  <meta name="description" content="Daniel at Rekka Software — websites, Telegram bots, automation and custom software. See selected work and start a project.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -17,110 +17,71 @@
   <div class="ambient ambient-one" aria-hidden="true"></div>
   <div class="ambient ambient-two" aria-hidden="true"></div>
 
-  <nav class="nav" id="nav">
-    <a href="#home" class="brand" aria-label="Rekka Software home">
-      <span class="brand-mark"><i data-lucide="asterisk"></i></span>
-      <span>REKKA<span class="brand-dot">.</span></span>
-    </a>
-    <div class="nav-links" id="navLinks">
-      <a href="#work">Work</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#process">Process</a>
-    </div>
-    <a href="#contact" class="nav-cta">Let's talk <i data-lucide="arrow-up-right"></i></a>
+  <header class="nav" id="nav">
+    <a href="#home" class="brand"><span class="brand-mark"><i data-lucide="asterisk"></i></span><span>REKKA<span class="brand-dot">.</span></span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#process">Process</a>
+    </nav>
+    <div class="nav-right"><span class="nav-status"><i></i> Taking projects</span><a href="#contact" class="nav-cta">Let's talk <i data-lucide="arrow-up-right"></i></a></div>
     <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
-  </nav>
+  </header>
 
   <main>
     <section class="hero section" id="home">
       <div class="hero-copy reveal">
         <div class="eyebrow"><span class="eyebrow-dot"></span> Daniel · Rekka Software</div>
-        <h1>I build digital things<br>that feel <em>alive.</em></h1>
-        <p class="hero-lead">Websites, Telegram bots, dashboards and custom software — designed, built and shipped with a focus on clarity, speed and personality.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#work">See my work <i data-lucide="arrow-down-right"></i></a>
-          <a class="btn btn-soft" href="#contact">Start a project <i data-lucide="sparkles"></i></a>
+        <h1>Websites that<br>make people <em>care.</em></h1>
+        <p class="hero-lead">I design and build websites, Telegram bots and custom software for people who want more than something that merely works.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#contact">Start a project <i data-lucide="arrow-up-right"></i></a><a class="btn btn-soft" href="#work">See what I've built <i data-lucide="arrow-down"></i></a></div>
+        <div class="hero-trust"><span><i data-lucide="sparkles"></i> Design + development</span><span><i data-lucide="zap"></i> Fast, practical builds</span><span><i data-lucide="message-circle"></i> Direct with Daniel</span></div>
+      </div>
+
+      <div class="hero-showcase reveal reveal-delay">
+        <div class="showcase-window">
+          <div class="window-top"><span class="window-dots"><i></i><i></i><i></i></span><span class="mono">rekka.software / studio</span><span class="live-pill"><i></i> ONLINE</span></div>
+          <div class="showcase-main"><div class="showcase-copy"><span class="mono small">BUILD / 2026</span><strong>Idea → interface → launch.</strong><p>Web, bots, dashboards & automation.</p><a href="#contact">Have an idea? <i data-lucide="arrow-up-right"></i></a></div><div class="showcase-orb"><span>D</span><i data-lucide="code-2"></i></div></div>
+          <div class="showcase-bottom"><span><b id="projectCount">—</b> public builds</span><span><b id="repoStars">—</b> GitHub stars</span><span><b>100%</b> direct contact</span></div>
         </div>
-        <div class="hero-meta">
-          <span><i data-lucide="globe-2"></i> Websites</span>
-          <span><i data-lucide="send"></i> Telegram bots</span>
-          <span><i data-lucide="wand-sparkles"></i> Automation</span>
-        </div>
+        <div class="floating-card float-work"><i data-lucide="layout-template"></i><div><b>Websites</b><span>Built around your brand</span></div></div>
+        <div class="floating-card float-bot"><i data-lucide="bot"></i><div><b>Telegram</b><span>Automate the boring stuff</span></div></div>
       </div>
-
-      <div class="hero-art reveal reveal-delay" aria-label="Rekka Software creative workspace">
-        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-        <div class="work-card main-card">
-          <div class="card-top"><span class="mono">REKKA / CREATIVE DESK</span><span class="live"><i></i> AVAILABLE</span></div>
-          <div class="portrait-placeholder"><div class="initial">D</div><span>Daniel<br>Software & web</span></div>
-          <div class="floating-note note-one"><i data-lucide="layout-template"></i><span>Web design</span></div>
-          <div class="floating-note note-two"><i data-lucide="bot"></i><span>Bot automation</span></div>
-          <div class="card-footer"><span>01 — 04</span><strong>Ideas → shipped</strong><i data-lucide="arrow-up-right"></i></div>
-        </div>
-      </div>
-      <div class="hero-bottom"><span><span class="scroll-line"></span> Scroll to explore</span><span class="mono">01 / 05</span></div>
+      <div class="hero-bottom"><span><span class="scroll-line"></span> Scroll to explore</span><span class="mono">01 / 06</span></div>
     </section>
 
-    <section class="section intro" id="work">
-      <div class="section-head reveal">
-        <div><div class="eyebrow"><span class="eyebrow-dot"></span> Selected work</div><h2>A small studio<br>with a <em>wide toolbox.</em></h2></div>
-        <p>I like projects where design and engineering meet. The work below represents the kind of digital products I build — polished enough to present, practical enough to use every day.</p>
+    <div class="ticker" aria-label="Services"><div class="ticker-track"><span>WEB DESIGN</span><b>✳</b><span>TELEGRAM BOTS</span><b>✳</b><span>CUSTOM SOFTWARE</span><b>✳</b><span>AUTOMATION</span><b>✳</b><span>UI / UX</span><b>✳</b><span>WEB DESIGN</span><b>✳</b><span>TELEGRAM BOTS</span><b>✳</b><span>CUSTOM SOFTWARE</span><b>✳</b><span>AUTOMATION</span><b>✳</b></div></div>
+
+    <section class="section work-section" id="work">
+      <div class="section-head reveal"><div><div class="eyebrow"><span class="eyebrow-dot"></span> The work</div><h2>Things I've<br><em>actually built.</em></h2></div><p>Here is where ideas become tangible. Add screenshots, live demos and case-study links as your portfolio grows.</p></div>
+      <div class="work-toolbar reveal"><div class="work-tabs" role="tablist"><button class="active" data-filter="all">All</button><button data-filter="website">Websites</button><button data-filter="bot">Bots</button><button data-filter="software">Software</button></div><a class="github-link" href="https://github.com/" target="_blank" rel="noopener">Open GitHub <i data-lucide="github"></i></a></div>
+      <div class="project-grid" id="projectGrid">
+        <article class="project-card project-featured" data-category="website"><div class="project-image image-sun"><div class="mock-browser"><div class="browser-bar"><span></span><span></span><span></span><small>your-project.com</small></div><div class="mock-site"><span class="mono">PROJECT 01</span><strong>A website<br>worth remembering.</strong><div></div></div></div><span class="image-label">YOUR SCREENSHOT</span></div><div class="project-body"><div class="project-meta"><span class="tag">Website</span><span class="mono">CASE STUDY</span></div><h3>Your next website</h3><p>Replace this card with one of your real projects. Add the screenshot, description, live link and the problem you solved.</p><a href="#contact" class="text-link">Build something like this <i data-lucide="arrow-up-right"></i></a></div></article>
+        <article class="project-card" data-category="bot"><div class="project-image image-terra"><div class="telegram-mock"><div class="tg-top"><span><i data-lucide="bot"></i></span><b>YOUR BOT</b><i data-lucide="more-horizontal"></i></div><div class="tg-msg left">New request received.</div><div class="tg-msg right">Processing it now ✓</div><div class="tg-msg left">Done. Notification sent.</div></div><span class="image-label">YOUR SCREENSHOT</span></div><div class="project-body"><div class="project-meta"><span class="tag terra">Telegram</span><span class="mono">BOT / API</span></div><h3>Automation bot</h3><p>Notifications, forms, support flows, admin commands and integrations.</p><a href="#contact" class="text-link">Build a bot <i data-lucide="arrow-up-right"></i></a></div></article>
+        <article class="project-card" data-category="software"><div class="project-image image-olive"><div class="dashboard-mock"><div class="dash-top"><b>OPERATIONS</b><span>LIVE</span></div><div class="metric-row"><b>94%</b><span>workflow complete</span></div><div class="chart"><i style="height:35%"></i><i style="height:58%"></i><i style="height:47%"></i><i style="height:72%"></i><i style="height:64%"></i><i style="height:88%"></i><i style="height:79%"></i></div></div><span class="image-label">YOUR SCREENSHOT</span></div><div class="project-body"><div class="project-meta"><span class="tag olive">Software</span><span class="mono">DASHBOARD</span></div><h3>Internal tools</h3><p>Simple software for complicated workflows, data and everyday operations.</p><a href="#contact" class="text-link">Discuss your workflow <i data-lucide="arrow-up-right"></i></a></div></article>
       </div>
-      <div class="work-grid">
-        <article class="project project-wide reveal">
-          <div class="project-visual blue-scene"><div class="browser-window"><div class="browser-bar"><i></i><i></i><i></i><span>your-business.com</span></div><div class="browser-content"><span class="tiny-label">01 / WEBSITE</span><h3>Websites with<br><em>a point of view.</em></h3><div class="fake-lines"><b></b><b></b><b></b></div></div></div></div>
-          <div class="project-info"><div><span class="tag">Websites</span><h3>Business & portfolio websites</h3><p>Responsive sites with a strong visual identity, smooth interactions and a structure that makes the message obvious.</p></div><span class="project-arrow"><i data-lucide="arrow-up-right"></i></span></div>
-        </article>
-        <article class="project reveal reveal-delay-1">
-          <div class="project-visual terracotta-scene"><div class="bot-ui"><div class="bot-head"><span class="bot-avatar"><i data-lucide="bot"></i></span><span>REKKA BOT</span><i data-lucide="more-horizontal"></i></div><div class="chat bubble-left">New order received.</div><div class="chat bubble-right">Got it — processing now ✓</div><div class="chat bubble-left">Status updated.</div></div></div>
-          <div class="project-info"><div><span class="tag terra">Telegram</span><h3>Telegram bots</h3><p>Useful bots for notifications, workflows, customer actions and internal operations.</p></div><span class="project-arrow"><i data-lucide="arrow-up-right"></i></span></div>
-        </article>
-        <article class="project reveal reveal-delay-2">
-          <div class="project-visual olive-scene"><div class="dashboard-mini"><div class="dash-title"><span>OPERATIONS</span><span class="mini-dot"></span></div><div class="bars"><i style="height:42%"></i><i style="height:66%"></i><i style="height:54%"></i><i style="height:88%"></i><i style="height:72%"></i><i style="height:96%"></i></div><div class="dash-foot"><b>94%</b><span>overview</span></div></div></div>
-          <div class="project-info"><div><span class="tag olive">Software</span><h3>Dashboards & internal tools</h3><p>Clean operational interfaces that turn messy processes into simple daily workflows.</p></div><span class="project-arrow"><i data-lucide="arrow-up-right"></i></span></div>
-        </article>
+
+      <div class="github-panel reveal" id="githubPanel">
+        <div class="github-panel-head"><div><div class="eyebrow"><span class="eyebrow-dot"></span> Live from GitHub</div><h3>What I'm building <em>now.</em></h3></div><span class="github-sync"><i></i><span id="githubStatus">Loading repositories…</span></span></div>
+        <div class="github-repos" id="githubRepos"><div class="repo-skeleton"></div><div class="repo-skeleton"></div><div class="repo-skeleton"></div></div>
+        <div class="github-note"><i data-lucide="info"></i><span>Connect your GitHub username in <code>public/js/main.js</code> and this section will automatically show your public repositories.</span></div>
       </div>
     </section>
 
-    <section class="section services" id="services">
-      <div class="services-layout">
-        <div class="sticky-title reveal"><div class="eyebrow"><span class="eyebrow-dot"></span> What I do</div><h2>From first sketch<br>to <em>production.</em></h2><p>One person, one point of contact, no unnecessary layers between the idea and the thing you actually receive.</p></div>
-        <div class="service-list">
-          <article class="service reveal"><span class="service-num">01</span><div><i data-lucide="monitor-smartphone"></i><h3>Websites</h3><p>Landing pages, company sites, portfolios, product pages and custom web experiences that work beautifully on desktop and mobile.</p><div class="service-tags"><span>Design</span><span>Frontend</span><span>Responsive</span></div></div></article>
-          <article class="service reveal"><span class="service-num">02</span><div><i data-lucide="bot"></i><h3>Telegram bots</h3><p>Automated notifications, forms, support flows, admin tools and bots connected to your existing processes.</p><div class="service-tags"><span>Automation</span><span>APIs</span><span>Workflows</span></div></div></article>
-          <article class="service reveal"><span class="service-num">03</span><div><i data-lucide="panels-top-left"></i><h3>Custom software</h3><p>Small internal platforms and tools built around the exact workflow you need instead of forcing your team into generic software.</p><div class="service-tags"><span>Dashboards</span><span>Data</span><span>Tools</span></div></div></article>
-          <article class="service reveal"><span class="service-num">04</span><div><i data-lucide="workflow"></i><h3>Automation & integrations</h3><p>Connect services, remove repetitive work and create simple systems that keep information moving without manual effort.</p><div class="service-tags"><span>Integrations</span><span>APIs</span><span>Automation</span></div></div></article>
-        </div>
-      </div>
-    </section>
+    <section class="section services" id="services"><div class="services-layout"><div class="sticky-title reveal"><div class="eyebrow"><span class="eyebrow-dot"></span> Services</div><h2>Let's make the<br>idea <em>real.</em></h2><p>Pick the problem. I'll help shape the solution, design the experience and build the thing.</p><a class="mini-cta" href="#contact">Tell me what you need <i data-lucide="arrow-up-right"></i></a></div><div class="service-list">
+      <article class="service reveal"><span class="service-num">01</span><div><i data-lucide="monitor-smartphone"></i><h3>Websites</h3><p>Landing pages, company websites, portfolios and product pages with a visual identity that feels intentional.</p><div class="service-tags"><span>Design</span><span>Frontend</span><span>Responsive</span></div></div></article>
+      <article class="service reveal"><span class="service-num">02</span><div><i data-lucide="bot"></i><h3>Telegram bots</h3><p>Useful bots for notifications, forms, customer flows, support and internal operations.</p><div class="service-tags"><span>Telegram</span><span>APIs</span><span>Automation</span></div></div></article>
+      <article class="service reveal"><span class="service-num">03</span><div><i data-lucide="panels-top-left"></i><h3>Custom software</h3><p>Dashboards and internal platforms designed around the exact workflow your business actually uses.</p><div class="service-tags"><span>Dashboards</span><span>Data</span><span>Tools</span></div></div></article>
+      <article class="service reveal"><span class="service-num">04</span><div><i data-lucide="workflow"></i><h3>Automation</h3><p>Connect services, remove repetitive tasks and let information move without someone babysitting it.</p><div class="service-tags"><span>Integrations</span><span>APIs</span><span>Workflows</span></div></div></article>
+    </div></div></section>
 
-    <section class="section about" id="about">
-      <div class="about-card reveal">
-        <div class="about-photo"><span>D</span><div><small>REKKA SOFTWARE</small><strong>Daniel</strong></div></div>
-        <div class="about-copy"><div class="eyebrow"><span class="eyebrow-dot"></span> A little about me</div><h2>Hi, I'm <em>Daniel.</em></h2><p class="lead">I enjoy turning ideas, annoying manual processes and half-formed concepts into software people can actually use.</p><p>Rekka Software is my independent software studio. I work across design and development, which means I can take a project from a rough idea to a finished website, bot or internal tool without making the process feel complicated.</p><div class="about-facts"><span><b>01</b> Direct communication</span><span><b>02</b> Design + development</span><span><b>03</b> Built for real use</span></div></div>
-      </div>
-    </section>
+    <section class="section about" id="about"><div class="about-card reveal"><div class="about-photo"><span>D</span><div><small>REKKA SOFTWARE</small><strong>Daniel</strong></div></div><div class="about-copy"><div class="eyebrow"><span class="eyebrow-dot"></span> The person behind it</div><h2>Hi, I'm <em>Daniel.</em></h2><p class="lead">I like taking vague ideas, annoying manual processes and ambitious little projects and turning them into software people can actually use.</p><p>Rekka Software is my independent studio. You work directly with me — from the first conversation through design, development, testing and launch.</p><div class="about-facts"><span><b>01</b> Direct communication</span><span><b>02</b> Design + development</span><span><b>03</b> Built for real use</span></div></div></div></section>
 
-    <section class="section process" id="process">
-      <div class="section-head reveal"><div><div class="eyebrow"><span class="eyebrow-dot"></span> How it works</div><h2>Simple process.<br><em>Good momentum.</em></h2></div><p>No giant agency process. We figure out what needs to exist, make it clear, build it, test it and keep improving it.</p></div>
-      <div class="process-grid">
-        <article class="process-step reveal"><span>01</span><i data-lucide="messages-square"></i><h3>Talk</h3><p>Tell me what you want to build, what is not working, or what you wish existed.</p></article>
-        <article class="process-step reveal reveal-delay-1"><span>02</span><i data-lucide="pencil-ruler"></i><h3>Shape</h3><p>We define the structure, visual direction and technical approach before the heavy build starts.</p></article>
-        <article class="process-step reveal reveal-delay-2"><span>03</span><i data-lucide="code-2"></i><h3>Build</h3><p>I turn the plan into a responsive, working product and keep the important decisions visible.</p></article>
-        <article class="process-step reveal reveal-delay-3"><span>04</span><i data-lucide="rocket"></i><h3>Ship</h3><p>Test, polish, launch — then iterate based on how the thing performs in the real world.</p></article>
-      </div>
-    </section>
+    <section class="section process" id="process"><div class="section-head reveal"><div><div class="eyebrow"><span class="eyebrow-dot"></span> Process</div><h2>Simple process.<br><em>Good momentum.</em></h2></div><p>No giant agency maze. We figure out what needs to exist, make it clear, build it, test it and ship it.</p></div><div class="process-grid"><article class="process-step reveal"><span>01</span><i data-lucide="messages-square"></i><h3>Talk</h3><p>Tell me what you want to build or what is not working.</p></article><article class="process-step reveal"><span>02</span><i data-lucide="pencil-ruler"></i><h3>Shape</h3><p>We define the structure, visual direction and technical approach.</p></article><article class="process-step reveal"><span>03</span><i data-lucide="code-2"></i><h3>Build</h3><p>I turn the plan into a responsive, working product.</p></article><article class="process-step reveal"><span>04</span><i data-lucide="rocket"></i><h3>Launch</h3><p>Test, polish, deploy — then keep improving where it matters.</p></article></div></section>
 
-    <section class="section contact" id="contact">
-      <div class="contact-shell">
-        <div class="contact-copy reveal"><div class="eyebrow"><span class="eyebrow-dot"></span> Let's build something</div><h2>Have an idea?<br>Let's make it <em>real.</em></h2><p>Tell me what you're working on. A website, Telegram bot, automation, dashboard — or something that doesn't fit neatly into a category.</p><div class="contact-list"><a href="mailto:hello@rekka.software"><span><i data-lucide="mail"></i></span><div><small>Email</small><strong>hello@rekka.software</strong></div><i data-lucide="arrow-up-right"></i></a><div><span><i data-lucide="clock-3"></i></span><div><small>Availability</small><strong>Taking on selected projects</strong></div></div></div></div>
-        <div class="form-wrap reveal reveal-delay-1"><div class="form-heading"><span>PROJECT / 01</span><i data-lucide="sparkles"></i></div><form id="contactForm" novalidate><div class="form-row"><div class="form-group"><label for="fname">Your name *</label><input id="fname" name="name" required maxlength="100" placeholder="Your name"></div><div class="form-group"><label for="femail">Email</label><input id="femail" name="email" type="email" maxlength="254" placeholder="you@example.com"></div></div><div class="form-group"><label for="ftype">What are you building?</label><select id="ftype" name="type"><option value="other">Website</option><option value="feature">Telegram bot</option><option value="feedback">Automation / integration</option><option value="bug">Existing project / fix</option><option value="other">Something else</option></select></div><div class="form-group"><label for="fmessage">Tell me about it *</label><textarea id="fmessage" name="message" required maxlength="5000" placeholder="What do you want to build? What should it do?"></textarea></div><button type="submit" class="form-submit" id="submitBtn">Send project brief <i data-lucide="arrow-up-right"></i></button><div class="form-msg" id="formMsg" role="status" aria-live="polite"></div></form></div>
-      </div>
-    </section>
+    <section class="section contact" id="contact"><div class="contact-layout"><div class="contact-copy reveal"><div class="eyebrow"><span class="eyebrow-dot"></span> Start a project</div><h2>Have something<br>in <em>mind?</em></h2><p>Tell me what you're trying to build. It can be a polished website, a Telegram bot, an internal tool or an idea that is still messy.</p><div class="contact-points"><a href="mailto:hello@rekka.software"><i data-lucide="mail"></i><span><small>Email</small>hello@rekka.software</span></a><a href="https://github.com/" target="_blank" rel="noopener"><i data-lucide="github"></i><span><small>GitHub</small>See the code & projects</span></a></div></div><div class="form-wrap reveal reveal-delay"><div class="form-header"><span class="mono">PROJECT BRIEF</span><span>Usually a good place to start.</span></div><form id="feedbackForm"><div class="form-row"><div class="form-group"><label for="fname">Name *</label><input id="fname" name="name" required maxlength="100" placeholder="Your name"></div><div class="form-group"><label for="femail">Email</label><input id="femail" name="email" type="email" maxlength="254" placeholder="you@example.com"></div></div><div class="form-group"><label for="ftype">What are you building?</label><select id="ftype" name="type"><option value="other">Website</option><option value="feature">Telegram bot</option><option value="feedback">Automation / integration</option><option value="bug">Existing project / fix</option><option value="other">Something else</option></select></div><div class="form-group"><label for="fmessage">Tell me about it *</label><textarea id="fmessage" name="message" required maxlength="5000" placeholder="What should it do? Who is it for? What would success look like?"></textarea></div><button type="submit" class="form-submit" id="submitBtn">Send project brief <i data-lucide="arrow-up-right"></i></button><div class="form-msg" id="formMsg" role="status" aria-live="polite"></div></form></div></div></section>
+
+    <section class="final-cta"><div class="final-cta-inner reveal"><span class="mono">REKKA SOFTWARE / DANIEL</span><h2>Let's build something<br><em>people remember.</em></h2><a class="btn btn-primary" href="#contact">Start the conversation <i data-lucide="arrow-up-right"></i></a></div></section>
   </main>
-
-  <footer class="footer"><a href="#home" class="brand"><span class="brand-mark"><i data-lucide="asterisk"></i></span><span>REKKA<span class="brand-dot">.</span></span></a><span>© 2026 Rekka Software · Daniel</span><div><a href="#work">Work</a><a href="#services">Services</a><a href="mailto:hello@rekka.software">Email</a></div></footer>
+  <footer class="footer"><a href="#home" class="brand"><span class="brand-mark"><i data-lucide="asterisk"></i></span><span>REKKA<span class="brand-dot">.</span></span></a><span>© 2026 Rekka Software · Daniel</span><div><a href="#work">Work</a><a href="#services">Services</a><a href="#contact">Contact</a></div></footer>
   <script src="/js/main.js" defer></script>
 </body>
 </html>

@@ -1,98 +1,84 @@
-(() => {
-  const nav = document.getElementById('nav');
-  const menuBtn = document.getElementById('menuBtn');
-  const navLinks = document.getElementById('navLinks');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* Rekka Software portfolio — Daniel */
+const GITHUB_USERNAME = 'vitoroidaniel'; // <- change this once
+const GITHUB_LIMIT = 6;
 
-  // Lightweight navigation state — no continuous animation loop.
-  const updateNav = () => nav?.classList.toggle('scrolled', window.scrollY > 24);
-  window.addEventListener('scroll', updateNav, { passive: true });
-  updateNav();
+const $ = (s, root = document) => root.querySelector(s);
+const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 
-  menuBtn?.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.innerHTML = `<i data-lucide="${open ? 'x' : 'menu'}"></i>`;
-    if (window.lucide) lucide.createIcons();
+function initIcons(){ if(window.lucide) lucide.createIcons({attrs:{'stroke-width':1.8}}); }
+
+function initNav(){
+  const nav = $('#nav'), btn = $('#menuBtn'), links = $('#navLinks');
+  if(!btn) return;
+  btn.addEventListener('click',()=>{
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
   });
-  navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    menuBtn?.setAttribute('aria-expanded', 'false');
-    if (menuBtn) menuBtn.innerHTML = '<i data-lucide="menu"></i>';
-    if (window.lucide) lucide.createIcons();
+  $$('#navLinks a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  let ticking=false;
+  window.addEventListener('scroll',()=>{
+    if(ticking)return; ticking=true;
+    requestAnimationFrame(()=>{nav.classList.toggle('scrolled',window.scrollY>30); ticking=false;});
+  },{passive:true});
+}
+
+function initReveal(){
+  const items=$$('.reveal');
+  if(!('IntersectionObserver' in window)){items.forEach(x=>x.classList.add('visible'));return;}
+  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -45px'});
+  items.forEach(x=>io.observe(x));
+}
+
+function initFilters(){
+  const tabs=$$('.work-tabs button'), cards=$$('.project-card');
+  tabs.forEach(tab=>tab.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('active'));tab.classList.add('active');
+    const filter=tab.dataset.filter;
+    cards.forEach(card=>{
+      const show=filter==='all'||card.dataset.category===filter;
+      card.style.display=show?'':'none';
+    });
   }));
+}
 
-  // IntersectionObserver reveals elements only when needed.
-  const reveals = document.querySelectorAll('.reveal');
-  if (reduceMotion) reveals.forEach(el => el.classList.add('is-visible'));
-  else {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
-    reveals.forEach(el => observer.observe(el));
-  }
+function setGithubStats(repos){
+  const count=$('#projectCount'), stars=$('#repoStars');
+  if(count) count.textContent=repos.length;
+  if(stars) stars.textContent=repos.reduce((n,r)=>n+(r.stargazers_count||0),0);
+}
 
-  // Subtle pointer tilt only on the main hero card; no cursor and no RAF loop.
-  const heroCard = document.querySelector('.main-card');
-  if (heroCard && !reduceMotion && matchMedia('(pointer:fine)').matches) {
-    heroCard.addEventListener('pointermove', e => {
-      const r = heroCard.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - .5;
-      const y = (e.clientY - r.top) / r.height - .5;
-      heroCard.style.transform = `rotateX(${y * -2.2}deg) rotateY(${x * 2.6}deg) translateY(-4px)`;
-    });
-    heroCard.addEventListener('pointerleave', () => { heroCard.style.transform = ''; });
-  }
+function repoCard(repo){
+  const card=document.createElement('article'); card.className='repo-card';
+  const description=repo.description||'A project by Daniel / Rekka Software.';
+  card.innerHTML=`<div class="repo-top"><span class="repo-name">${escapeHtml(repo.name)}</span>${repo.language?`<span class="repo-lang">${escapeHtml(repo.language)}</span>`:''}</div><p>${escapeHtml(description.slice(0,140))}</p><div class="repo-bottom"><span><i data-lucide="star"></i>${repo.stargazers_count||0}</span><span><i data-lucide="git-fork"></i>${repo.forks_count||0}</span><span>${repo.private?'Private':'Public'}</span></div>`;
+  card.addEventListener('click',()=>window.open(repo.html_url,'_blank','noopener'));
+  card.style.cursor='pointer'; return card;
+}
+function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
-  // Active section indicator.
-  const sections = [...document.querySelectorAll('main section[id]')];
-  const links = [...document.querySelectorAll('.nav-links a')];
-  const sectionObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
-    });
-  }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
-  sections.forEach(section => sectionObserver.observe(section));
+async function loadGithub(){
+  const wrap=$('#githubRepos'), status=$('#githubStatus');
+  if(!wrap||!status)return;
+  if(!GITHUB_USERNAME||GITHUB_USERNAME==='YOUR_GITHUB_USERNAME'){
+    status.textContent='Add your GitHub username'; wrap.innerHTML='<div class="repo-card"><div class="repo-top"><span class="repo-name">Connect GitHub</span><span class="repo-lang">SETUP</span></div><p>Open public/js/main.js and replace YOUR_GITHUB_USERNAME with your GitHub username.</p><div class="repo-bottom"><span><i data-lucide="github"></i> Live repos</span></div></div><div class="repo-card"><div class="repo-top"><span class="repo-name">Automatic cards</span><span class="repo-lang">LIVE</span></div><p>Your public repositories will appear here automatically with stars, forks, language and descriptions.</p><div class="repo-bottom"><span><i data-lucide="refresh-cw"></i> Auto updated</span></div></div><div class="repo-card"><div class="repo-top"><span class="repo-name">Your portfolio</span><span class="repo-lang">READY</span></div><p>Add screenshots above and use GitHub here as proof that the work is real and active.</p><div class="repo-bottom"><span><i data-lucide="image"></i> Add your work</span></div></div>';initIcons();return;}
+  try{
+    const res=await fetch(`https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}/repos?sort=updated&direction=desc&per_page=${GITHUB_LIMIT}`,{headers:{Accept:'application/vnd.github+json'}});
+    if(!res.ok)throw new Error('GitHub request failed');
+    const repos=(await res.json()).filter(r=>!r.fork).slice(0,GITHUB_LIMIT);
+    wrap.innerHTML=''; repos.forEach(r=>wrap.appendChild(repoCard(r))); setGithubStats(repos);
+    status.textContent=`${repos.length} recent public repos`;
+    initIcons();
+  }catch(err){status.textContent='GitHub unavailable';wrap.innerHTML='<div class="repo-card"><div class="repo-name">Could not load repositories</div><p>Check the username in main.js or open GitHub directly.</p></div>';}
+}
 
-  const getDeviceInfo = () => ({
-    os: navigator.platform || 'Unknown', browser: navigator.userAgent || 'Unknown',
-    screen: `${screen.width}x${screen.height}`, language: navigator.language || 'Unknown',
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unknown',
-    page: location.href, referrer: document.referrer || '', isMobile: /Mobi|Android/i.test(navigator.userAgent),
-    touchDevice: 'ontouchstart' in window
+function initForm(){
+  const form=$('#feedbackForm'), msg=$('#formMsg'), btn=$('#submitBtn'); if(!form)return;
+  form.addEventListener('submit',async e=>{
+    e.preventDefault(); msg.textContent='Sending…'; btn.disabled=true;
+    const data=Object.fromEntries(new FormData(form).entries());
+    data.deviceInfo={os:navigator.platform,browser:navigator.userAgent,screen:`${innerWidth}x${innerHeight}`,language:navigator.language,timezone:Intl.DateTimeFormat().resolvedOptions().timeZone,page:location.href,referrer:document.referrer,isMobile:/Mobi|Android/i.test(navigator.userAgent),touchDevice:'ontouchstart' in window};
+    try{const res=await fetch('/api/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const body=await res.json().catch(()=>({}));if(!res.ok)throw new Error(body.error||'Could not send');form.reset();msg.textContent='Thanks — your project brief is on its way.';}catch(err){msg.textContent=err.message||'Something went wrong. Please try again.';}finally{btn.disabled=false;}
   });
+}
 
-  const form = document.getElementById('contactForm');
-  if (form) {
-    const btn = document.getElementById('submitBtn');
-    const msg = document.getElementById('formMsg');
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      if (!form.reportValidity()) return;
-      btn.disabled = true; btn.innerHTML = 'Sending…'; msg.className = 'form-msg'; msg.style.display = 'none';
-      try {
-        const res = await fetch('/api/feedback', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
-          name: document.getElementById('fname').value, email: document.getElementById('femail').value,
-          type: document.getElementById('ftype').value, message: document.getElementById('fmessage').value, deviceInfo: getDeviceInfo()
-        })});
-        let data = {}; try { data = await res.json(); } catch {}
-        if (!res.ok || !data.success) throw new Error(data.error || 'Something went wrong.');
-        msg.className = 'form-msg success'; msg.textContent = '✓ Message sent. I’ll get back to you soon.'; msg.style.display = 'block'; form.reset();
-      } catch (err) {
-        msg.className = 'form-msg error'; msg.textContent = '✕ ' + (err.message || 'Something went wrong.'); msg.style.display = 'block';
-      } finally {
-        btn.disabled = false; btn.innerHTML = 'Send project brief <i data-lucide="arrow-up-right"></i>';
-        if (window.lucide) lucide.createIcons();
-      }
-    });
-  }
-
-  const renderIcons = () => window.lucide?.createIcons({ attrs: { 'stroke-width': 1.8 } });
-  if (window.lucide) renderIcons(); else window.addEventListener('load', renderIcons, { once:true });
-})();
+initNav(); initReveal(); initFilters(); initForm(); initIcons(); loadGithub();
