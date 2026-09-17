@@ -77,7 +77,7 @@ async function sendFeedbackEmail({ name, email, type, message, deviceInfo }) {
   const emailHtml = `
   <div style="font-family:monospace;background:#080a0e;color:#f0f2f5;padding:32px;max-width:620px">
     <div style="border-bottom:1px solid #1f2937;padding-bottom:16px;margin-bottom:24px">
-      <span style="color:#e8ff47;font-size:1.2rem;font-weight:bold">REKKA SOFTWARE</span>
+      <span style="color:#e8ff47;font-size:1.2rem;font-weight:bold">KURTEX</span>
       <span style="color:#6b7280;font-size:0.8rem;margin-left:12px">Website Submission</span>
     </div>
     <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
@@ -97,7 +97,7 @@ async function sendFeedbackEmail({ name, email, type, message, deviceInfo }) {
     from: RESEND_FROM,
     to: ADMIN_EMAIL,
     reply_to: email || undefined,
-    subject: `[Rekka Software] ${label} from ${name}`,
+    subject: `[Kurtex] ${label} from ${name}`,
     html: emailHtml,
   });
 }
@@ -175,7 +175,7 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Rekka Software running on port ${PORT}`);
+  console.log(`Kurtex Web running on port ${PORT}`);
   if (!resend || !ADMIN_EMAIL) {
     console.warn('[mail] Contact form email delivery is disabled until RESEND_API_KEY and ADMIN_EMAIL are set.');
   }
