@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Rekka Software</title>
+  <meta name="description" content="AI-powered maintenance issue detection and automated dispatch for modern fleets."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">KURT<span>EX</span></a>
+    <ul class="nav-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get In Touch</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-badge">AI-POWERED · REKKA SOFTWARE · v2.0</div>
+    <h1>REKKA<br/><em>SOFTWARE</em></h1>
+    <p class="hero-sub">
+      Real-time alert detection, automated dispatch, and AI-powered issue scanning
+      for modern truck fleets. Built for teams that can't afford downtime.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Report an Issue</a>
+      <a href="#how" class="btn-ghost">See How It Works</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">24<span>/7</span></div>
+        <div class="stat-label">MONITORING</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">&lt;10<span>s</span></div>
+        <div class="stat-label">ALERT RESPONSE</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">AI<span>+</span></div>
+        <div class="stat-label">ISSUE DETECTION</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">EMAIL<span>✓</span></div>
+        <div class="stat-label">INSTANT DELIVERY</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="how-inner">
+      <div>
+        <div class="section-tag fade-up">// HOW IT WORKS</div>
+        <h2 class="section-title fade-up">From report<br/>to action in<br/><em style="color:var(--accent)">seconds.</em></h2>
+        <p class="section-sub fade-up">
+          Drivers report issues the moment they happen. Our system handles the rest — detection, routing, and tracking automatically.
+        </p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3>Driver reports an issue</h3>
+              <p>Driver flags a problem using a trigger phrase or just describes it naturally.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3>AI scans for hidden issues</h3>
+              <p>The AI scanner reads every report and detects maintenance problems even without trigger words — powered by Groq.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3>Admins get notified instantly</h3>
+              <p>On-shift agents receive an instant alert with Assign, Report, or Ignore options — fully actionable.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <div class="step-content">
+              <h3>Case tracked to resolution</h3>
+              <p>Every case is logged, assigned, and closed with resolution notes. Full history always available.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="terminal fade-up">
+        <div class="terminal-header">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="terminal-title">kurtex-monitor — live feed</span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="t-muted">05:18:43</span> <span class="t-green">INFO</span> <span class="t-white">Kurtex Monitor started</span></div>
+          <div><span class="t-muted">05:18:44</span> <span class="t-blue">SCAN</span> <span class="t-white">Watching driver reports</span></div>
+          <div><span class="t-muted">05:19:02</span> <span class="t-yellow">RECV</span> <span class="t-white">Report from Dmitri</span></div>
+          <div><span class="t-muted">05:19:02</span> <span class="t-blue">AI  </span> <span class="t-white">Analyzing content...</span></div>
+          <div><span class="t-muted">05:19:03</span> <span class="t-red">ALERT</span> <span class="t-white">Issue detected — HIGH</span></div>
+          <div><span class="t-muted">05:19:03</span> <span class="t-yellow">SUM </span> <span class="t-white">"Reefer shutting off, temp rising"</span></div>
+          <div><span class="t-muted">05:19:03</span> <span class="t-green">DM  </span> <span class="t-white">Notified 2 on-shift agents</span></div>
+          <div><span class="t-muted">05:19:08</span> <span class="t-green">ACK </span> <span class="t-white">@danikav assigned case</span></div>
+          <div><span class="t-muted">05:19:09</span> <span class="t-green">CASE</span> <span class="t-white">Logged → #KX-2847</span></div>
+          <div><span class="t-muted">05:19:09</span> <span class="t-muted">.......................................</span></div>
+          <div><span class="t-muted">05:26:14</span> <span class="t-green">DONE</span> <span class="t-white">Case resolved ✓</span></div>
+          <div><span class="cursor-blink"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-tag fade-up">// FEATURES</div>
+      <h2 class="section-title fade-up">Everything your<br/>fleet needs.</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🤖</span>
+          <h3>AI Issue Detection</h3>
+          <p>Groq-powered scanner reads every driver report and flags maintenance issues even without trigger words. HIGH/MEDIUM confidence scoring.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">⚡</span>
+          <h3>Instant Alerts</h3>
+          <p>On-shift admins are notified within 10 seconds of issue detection. Auto-escalation if no response within 5 minutes.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📋</span>
+          <h3>Case Management</h3>
+          <p>Full case lifecycle — create, assign, report, and close with resolution notes. Complete history always accessible.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🔄</span>
+          <h3>Shift Scheduling</h3>
+          <p>Morning, Afternoon, Night, and Weekend shifts. Automatically routes alerts to agents currently on duty.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📊</span>
+          <h3>Reports & Leaderboard</h3>
+          <p>Daily summaries, agent performance tracking, and missed alert reports. Super admin access for full visibility.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🔒</span>
+          <h3>Secure & Private</h3>
+          <p>All secrets stored as environment variables. No credentials in code. Hosted on Railway with automatic redeployment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="section-tag fade-up">// CONTACT</div>
+        <h2 class="section-title fade-up">Have a problem<br/>or feedback?</h2>
+        <p class="section-sub fade-up">
+          Submit the form and it'll go straight to my inbox. I respond fast.
+        </p>
+        <div class="contact-details">
+          <div class="contact-item fade-up">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-item-text">
+              <h4>Email</h4>
+              <a href="mailto:hello@rekka.software">hello@rekka.software</a>
+            </div>
+          </div>
+          <div class="contact-item fade-up">
+            <div class="contact-icon">⏱️</div>
+            <div class="contact-item-text">
+              <h4>Response Time</h4>
+              <p>Usually within a few hours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-wrap fade-up">
+        <div class="form-title">Send a message →</div>
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Your Name *</label>
+              <input type="text" id="fname" name="name" placeholder="Alexei" maxlength="100" required/>
+            </div>
+            <div class="form-group">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" name="email" placeholder="you@example.com" maxlength="254"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ftype">Type *</label>
+            <select id="ftype" name="type">
+              <option value="feedback">💬 General Feedback</option>
+              <option value="bug">🐛 Bug Report</option>
+              <option value="feature">✨ Feature Request</option>
+              <option value="other">📩 Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fmessage">Message *</label>
+            <textarea id="fmessage" name="message" placeholder="Describe your feedback or issue in detail..." maxlength="5000" required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">
+            Send Message →
+          </button>
+          <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">RE<span>KKA</span></div>
+    <div class="footer-text">© 2026 · REKKA SOFTWARE</div>
+    <div class="footer-links">
+      <a href="mailto:hello@rekka.software">Email</a>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
