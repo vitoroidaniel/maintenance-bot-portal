@@ -1,224 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <meta name="theme-color" content="#f4efe4"/>
-  <title>Rekka Software — Maintenance intelligence</title>
-  <meta name="description" content="Maintenance intelligence, alert detection and automated dispatch for modern fleets."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="/css/style.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#eee8dc">
+  <title>Daniel — Rekka Software</title>
+  <meta name="description" content="Daniel at Rekka Software — websites, Telegram bots, automation and custom software built with care.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
   <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
-  <div class="cursor" id="cursor" aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
 
-  <nav id="nav" class="nav">
+  <nav class="nav" id="nav">
     <a href="#home" class="brand" aria-label="Rekka Software home">
-      <span class="brand-mark"><i data-lucide="sparkles"></i></span>
+      <span class="brand-mark"><i data-lucide="asterisk"></i></span>
       <span>REKKA<span class="brand-dot">.</span></span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#platform">Platform</a>
-      <a href="#workflow">Workflow</a>
-      <a href="#intelligence">Intelligence</a>
-      <a href="#company">Company</a>
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
     </div>
-    <a href="#contact" class="nav-cta">Talk to us <i data-lucide="arrow-up-right"></i></a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><i data-lucide="menu"></i></button>
+    <a href="#contact" class="nav-cta">Let's talk <i data-lucide="arrow-up-right"></i></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
   </nav>
 
   <main>
-    <!-- HOME -->
     <section class="hero section" id="home">
-      <div class="sun-orb" aria-hidden="true"></div>
       <div class="hero-copy reveal">
-        <div class="eyebrow"><span class="eyebrow-dot"></span> Maintenance intelligence · built for motion</div>
-        <h1>Keep the road<br/><em>moving.</em></h1>
-        <p class="hero-lead">Rekka turns driver reports into clear, actionable maintenance cases — with AI detection, instant routing, and a calm operational view for the people keeping fleets alive.</p>
+        <div class="eyebrow"><span class="eyebrow-dot"></span> Daniel · Rekka Software</div>
+        <h1>I build digital things<br>that feel <em>alive.</em></h1>
+        <p class="hero-lead">Websites, Telegram bots, dashboards and custom software — designed, built and shipped with a focus on clarity, speed and personality.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary magnetic" href="#contact">Report an issue <i data-lucide="arrow-up-right"></i></a>
-          <a class="btn btn-soft" href="#workflow">Explore the workflow <i data-lucide="arrow-down"></i></a>
+          <a class="btn btn-primary" href="#work">See my work <i data-lucide="arrow-down-right"></i></a>
+          <a class="btn btn-soft" href="#contact">Start a project <i data-lucide="sparkles"></i></a>
         </div>
         <div class="hero-meta">
-          <span><i data-lucide="circle-check"></i> Live monitoring</span>
-          <span><i data-lucide="clock-3"></i> &lt;10s alert response</span>
-          <span><i data-lucide="shield-check"></i> Private by design</span>
+          <span><i data-lucide="globe-2"></i> Websites</span>
+          <span><i data-lucide="send"></i> Telegram bots</span>
+          <span><i data-lucide="wand-sparkles"></i> Automation</span>
         </div>
       </div>
 
-      <div class="hero-art reveal reveal-delay" aria-label="Maintenance command center preview">
-        <div class="art-glow"></div>
-        <div class="dashboard-card">
-          <div class="dash-top">
-            <div>
-              <span class="micro-label">REKKA / LIVE BOARD</span>
-              <strong>Fleet pulse</strong>
-            </div>
-            <span class="status-pill"><span></span> Live</span>
-          </div>
-          <div class="pulse-chart">
-            <div class="chart-grid"></div>
-            <svg viewBox="0 0 600 190" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0 143 C45 140 48 103 84 110 S126 146 163 126 S204 70 240 94 S280 132 314 103 S349 52 386 75 S431 116 466 96 S509 60 547 72 S574 83 600 44" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-            </svg>
-            <div class="chart-label label-a">98%</div>
-            <div class="chart-label label-b">stable</div>
-          </div>
-          <div class="dash-grid">
-            <div class="mini-stat"><span>Open cases</span><strong>08</strong><small>↓ 14% this week</small></div>
-            <div class="mini-stat"><span>Avg. response</span><strong>08<span>s</span></strong><small>↓ 2.1s today</small></div>
-            <div class="mini-stat"><span>Fleet health</span><strong>94<span>%</span></strong><small>12 vehicles tracked</small></div>
-          </div>
-          <div class="case-list">
-            <div class="case-row hot"><span class="case-icon"><i data-lucide="thermometer"></i></span><div><b>Reefer temperature rising</b><small>Unit 2847 · detected 2m ago</small></div><span class="priority">High</span></div>
-            <div class="case-row"><span class="case-icon"><i data-lucide="triangle-alert"></i></span><div><b>Brake warning reported</b><small>Unit 1912 · assigned to Alex</small></div><span class="priority medium">Med</span></div>
-          </div>
+      <div class="hero-art reveal reveal-delay" aria-label="Rekka Software creative workspace">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="work-card main-card">
+          <div class="card-top"><span class="mono">REKKA / CREATIVE DESK</span><span class="live"><i></i> AVAILABLE</span></div>
+          <div class="portrait-placeholder"><div class="initial">D</div><span>Daniel<br>Software & web</span></div>
+          <div class="floating-note note-one"><i data-lucide="layout-template"></i><span>Web design</span></div>
+          <div class="floating-note note-two"><i data-lucide="bot"></i><span>Bot automation</span></div>
+          <div class="card-footer"><span>01 — 04</span><strong>Ideas → shipped</strong><i data-lucide="arrow-up-right"></i></div>
         </div>
       </div>
-
-      <div class="hero-bottom reveal">
-        <div class="scroll-note"><span class="scroll-line"></span> Scroll to explore</div>
-        <div class="hero-number">01 <span>/ 06</span></div>
-      </div>
+      <div class="hero-bottom"><span><span class="scroll-line"></span> Scroll to explore</span><span class="mono">01 / 05</span></div>
     </section>
 
-    <!-- PLATFORM -->
-    <section class="section platform" id="platform">
+    <section class="section intro" id="work">
       <div class="section-head reveal">
-        <div>
-          <div class="eyebrow"><span class="eyebrow-dot"></span> The platform</div>
-          <h2>One quiet place<br/>for <em>noisy problems.</em></h2>
-        </div>
-        <p>Designed to feel less like another control panel and more like a dependable operations desk — focused, readable, and useful when something goes wrong.</p>
+        <div><div class="eyebrow"><span class="eyebrow-dot"></span> Selected work</div><h2>A small studio<br>with a <em>wide toolbox.</em></h2></div>
+        <p>I like projects where design and engineering meet. The work below represents the kind of digital products I build — polished enough to present, practical enough to use every day.</p>
       </div>
-      <div class="feature-layout">
-        <article class="feature-card feature-large reveal">
-          <div class="feature-top"><span class="icon-bubble"><i data-lucide="scan-search"></i></span><span class="card-index">01</span></div>
-          <h3>AI issue detection</h3>
-          <p>Read natural driver language, identify maintenance signals, and surface cases even when nobody used a trigger phrase.</p>
-          <div class="signal"><span class="signal-line"></span><span>Confidence 96%</span><i data-lucide="arrow-up-right"></i></div>
+      <div class="work-grid">
+        <article class="project project-wide reveal">
+          <div class="project-visual blue-scene"><div class="browser-window"><div class="browser-bar"><i></i><i></i><i></i><span>your-business.com</span></div><div class="browser-content"><span class="tiny-label">01 / WEBSITE</span><h3>Websites with<br><em>a point of view.</em></h3><div class="fake-lines"><b></b><b></b><b></b></div></div></div></div>
+          <div class="project-info"><div><span class="tag">Websites</span><h3>Business & portfolio websites</h3><p>Responsive sites with a strong visual identity, smooth interactions and a structure that makes the message obvious.</p></div><span class="project-arrow"><i data-lucide="arrow-up-right"></i></span></div>
         </article>
-        <article class="feature-card reveal reveal-delay-1">
-          <div class="feature-top"><span class="icon-bubble olive"><i data-lucide="bell-ring"></i></span><span class="card-index">02</span></div>
-          <h3>Instant alerts</h3>
-          <p>Route the right issue to the right person based on the active shift and escalation rules.</p>
-          <div class="fake-alert"><span></span><div><b>New high-priority case</b><small>Assigned to on-shift team</small></div></div>
+        <article class="project reveal reveal-delay-1">
+          <div class="project-visual terracotta-scene"><div class="bot-ui"><div class="bot-head"><span class="bot-avatar"><i data-lucide="bot"></i></span><span>REKKA BOT</span><i data-lucide="more-horizontal"></i></div><div class="chat bubble-left">New order received.</div><div class="chat bubble-right">Got it — processing now ✓</div><div class="chat bubble-left">Status updated.</div></div></div>
+          <div class="project-info"><div><span class="tag terra">Telegram</span><h3>Telegram bots</h3><p>Useful bots for notifications, workflows, customer actions and internal operations.</p></div><span class="project-arrow"><i data-lucide="arrow-up-right"></i></span></div>
         </article>
-        <article class="feature-card reveal reveal-delay-2">
-          <div class="feature-top"><span class="icon-bubble terracotta"><i data-lucide="clipboard-list"></i></span><span class="card-index">03</span></div>
-          <h3>Case management</h3>
-          <p>Assign, update, resolve, and review every case with a complete operational history.</p>
-          <div class="case-progress"><span style="width:82%"></span></div><small>82% resolved this week</small>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-top"><span class="icon-bubble blue"><i data-lucide="calendar-clock"></i></span><span class="card-index">04</span></div>
-          <h3>Shift-aware routing</h3>
-          <p>Morning, afternoon, night, and weekend coverage stays connected to who is actually on duty.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-1">
-          <div class="feature-top"><span class="icon-bubble"><i data-lucide="chart-no-axes-combined"></i></span><span class="card-index">05</span></div>
-          <h3>Reports & trends</h3>
-          <p>Turn case history into patterns your team can understand and act on.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-2">
-          <div class="feature-top"><span class="icon-bubble olive"><i data-lucide="lock-keyhole"></i></span><span class="card-index">06</span></div>
-          <h3>Secure foundations</h3>
-          <p>Secrets stay outside the codebase, while access and operational data remain separated and controlled.</p>
+        <article class="project reveal reveal-delay-2">
+          <div class="project-visual olive-scene"><div class="dashboard-mini"><div class="dash-title"><span>OPERATIONS</span><span class="mini-dot"></span></div><div class="bars"><i style="height:42%"></i><i style="height:66%"></i><i style="height:54%"></i><i style="height:88%"></i><i style="height:72%"></i><i style="height:96%"></i></div><div class="dash-foot"><b>94%</b><span>overview</span></div></div></div>
+          <div class="project-info"><div><span class="tag olive">Software</span><h3>Dashboards & internal tools</h3><p>Clean operational interfaces that turn messy processes into simple daily workflows.</p></div><span class="project-arrow"><i data-lucide="arrow-up-right"></i></span></div>
         </article>
       </div>
     </section>
 
-    <!-- WORKFLOW -->
-    <section class="section workflow" id="workflow">
-      <div class="workflow-intro reveal">
-        <div class="eyebrow"><span class="eyebrow-dot"></span> The workflow</div>
-        <h2>From a sentence<br/>to a <em>resolved case.</em></h2>
-        <p>No complicated handoffs. Rekka keeps the operational chain visible from first report to final resolution.</p>
-      </div>
-      <div class="timeline">
-        <article class="timeline-item reveal"><span class="timeline-dot">01</span><div><span class="micro-label">INPUT</span><h3>A driver reports a problem</h3><p>A natural message is captured without forcing the driver through a rigid form.</p></div><i data-lucide="message-square-text"></i></article>
-        <article class="timeline-item reveal reveal-delay-1"><span class="timeline-dot">02</span><div><span class="micro-label">ANALYZE</span><h3>AI finds the maintenance signal</h3><p>The report is scanned for likely issues, urgency, and useful context.</p></div><i data-lucide="brain-circuit"></i></article>
-        <article class="timeline-item reveal reveal-delay-2"><span class="timeline-dot">03</span><div><span class="micro-label">ROUTE</span><h3>The on-shift team gets the alert</h3><p>Cases are surfaced to the people currently responsible for action.</p></div><i data-lucide="send"></i></article>
-        <article class="timeline-item reveal reveal-delay-3"><span class="timeline-dot">04</span><div><span class="micro-label">RESOLVE</span><h3>Everything stays tracked</h3><p>Assignment, notes, status changes, and resolution history stay together.</p></div><i data-lucide="check-circle-2"></i></article>
-      </div>
-    </section>
-
-    <!-- INTELLIGENCE -->
-    <section class="section intelligence" id="intelligence">
-      <div class="intel-panel reveal">
-        <div class="intel-copy">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Operational intelligence</div>
-          <h2>Make the useful signal<br/><em>easy to see.</em></h2>
-          <p>Rekka combines live alerts, shift context, case history, and lightweight analytics into a single operational language.</p>
-          <div class="intel-points">
-            <div><i data-lucide="check"></i><span>High / medium confidence signals</span></div>
-            <div><i data-lucide="check"></i><span>Escalation when nobody responds</span></div>
-            <div><i data-lucide="check"></i><span>Resolution notes and audit history</span></div>
-          </div>
-        </div>
-        <div class="intel-ui">
-          <div class="intel-header"><span>AI / CASE ANALYSIS</span><span>08:42:17</span></div>
-          <div class="analysis-message"><span class="avatar">D</span><div><small>Driver report</small><p>“Reefer is shutting off and the temperature is climbing.”</p></div></div>
-          <div class="analysis-arrow"><span></span><i data-lucide="arrow-down"></i></div>
-          <div class="analysis-result"><div class="result-title"><span><i data-lucide="sparkles"></i> Maintenance issue detected</span><b>96%</b></div><div class="tags"><span>Reefer</span><span>Temperature</span><span>High priority</span></div><div class="result-action"><span>Recommended action</span><strong>Notify on-shift agent</strong><i data-lucide="arrow-right"></i></div></div>
+    <section class="section services" id="services">
+      <div class="services-layout">
+        <div class="sticky-title reveal"><div class="eyebrow"><span class="eyebrow-dot"></span> What I do</div><h2>From first sketch<br>to <em>production.</em></h2><p>One person, one point of contact, no unnecessary layers between the idea and the thing you actually receive.</p></div>
+        <div class="service-list">
+          <article class="service reveal"><span class="service-num">01</span><div><i data-lucide="monitor-smartphone"></i><h3>Websites</h3><p>Landing pages, company sites, portfolios, product pages and custom web experiences that work beautifully on desktop and mobile.</p><div class="service-tags"><span>Design</span><span>Frontend</span><span>Responsive</span></div></div></article>
+          <article class="service reveal"><span class="service-num">02</span><div><i data-lucide="bot"></i><h3>Telegram bots</h3><p>Automated notifications, forms, support flows, admin tools and bots connected to your existing processes.</p><div class="service-tags"><span>Automation</span><span>APIs</span><span>Workflows</span></div></div></article>
+          <article class="service reveal"><span class="service-num">03</span><div><i data-lucide="panels-top-left"></i><h3>Custom software</h3><p>Small internal platforms and tools built around the exact workflow you need instead of forcing your team into generic software.</p><div class="service-tags"><span>Dashboards</span><span>Data</span><span>Tools</span></div></div></article>
+          <article class="service reveal"><span class="service-num">04</span><div><i data-lucide="workflow"></i><h3>Automation & integrations</h3><p>Connect services, remove repetitive work and create simple systems that keep information moving without manual effort.</p><div class="service-tags"><span>Integrations</span><span>APIs</span><span>Automation</span></div></div></article>
         </div>
       </div>
     </section>
 
-    <!-- COMPANY -->
-    <section class="section company" id="company">
-      <div class="company-grid">
-        <div class="company-title reveal"><div class="eyebrow"><span class="eyebrow-dot"></span> Why Rekka</div><h2>Technology should feel<br/><em>human.</em></h2></div>
-        <div class="company-copy reveal reveal-delay-1"><p class="lead">The best operational software does not demand attention. It gives attention back.</p><p>Rekka is built around a simple idea: maintenance teams already have enough noise. The interface should reduce friction, clarify responsibility, and make the next useful action obvious.</p><div class="quote-card"><i data-lucide="quote"></i><p>Less searching. Less guessing. More time keeping the fleet moving.</p></div></div>
-      </div>
-      <div class="numbers reveal">
-        <div><strong>24<span>/7</span></strong><small>Monitoring mindset</small></div>
-        <div><strong>&lt;10<span>s</span></strong><small>Alert response target</small></div>
-        <div><strong>100<span>%</span></strong><small>Case history visibility</small></div>
-        <div><strong>01</strong><small>Shared operational view</small></div>
+    <section class="section about" id="about">
+      <div class="about-card reveal">
+        <div class="about-photo"><span>D</span><div><small>REKKA SOFTWARE</small><strong>Daniel</strong></div></div>
+        <div class="about-copy"><div class="eyebrow"><span class="eyebrow-dot"></span> A little about me</div><h2>Hi, I'm <em>Daniel.</em></h2><p class="lead">I enjoy turning ideas, annoying manual processes and half-formed concepts into software people can actually use.</p><p>Rekka Software is my independent software studio. I work across design and development, which means I can take a project from a rough idea to a finished website, bot or internal tool without making the process feel complicated.</p><div class="about-facts"><span><b>01</b> Direct communication</span><span><b>02</b> Design + development</span><span><b>03</b> Built for real use</span></div></div>
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <section class="section process" id="process">
+      <div class="section-head reveal"><div><div class="eyebrow"><span class="eyebrow-dot"></span> How it works</div><h2>Simple process.<br><em>Good momentum.</em></h2></div><p>No giant agency process. We figure out what needs to exist, make it clear, build it, test it and keep improving it.</p></div>
+      <div class="process-grid">
+        <article class="process-step reveal"><span>01</span><i data-lucide="messages-square"></i><h3>Talk</h3><p>Tell me what you want to build, what is not working, or what you wish existed.</p></article>
+        <article class="process-step reveal reveal-delay-1"><span>02</span><i data-lucide="pencil-ruler"></i><h3>Shape</h3><p>We define the structure, visual direction and technical approach before the heavy build starts.</p></article>
+        <article class="process-step reveal reveal-delay-2"><span>03</span><i data-lucide="code-2"></i><h3>Build</h3><p>I turn the plan into a responsive, working product and keep the important decisions visible.</p></article>
+        <article class="process-step reveal reveal-delay-3"><span>04</span><i data-lucide="rocket"></i><h3>Ship</h3><p>Test, polish, launch — then iterate based on how the thing performs in the real world.</p></article>
+      </div>
+    </section>
+
     <section class="section contact" id="contact">
       <div class="contact-shell">
-        <div class="contact-copy reveal">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Start a conversation</div>
-          <h2>Have a problem,<br/>idea, or <em>question?</em></h2>
-          <p>Send it over. Your message goes straight to the team inbox, with lightweight device context attached to help with bug reports.</p>
-          <div class="contact-list">
-            <a href="mailto:hello@rekka.software"><span><i data-lucide="mail"></i></span><div><small>Email</small><strong>hello@rekka.software</strong></div><i data-lucide="arrow-up-right"></i></a>
-            <div><span><i data-lucide="clock-3"></i></span><div><small>Response</small><strong>Usually within a few hours</strong></div></div>
-          </div>
-        </div>
-        <div class="form-wrap reveal reveal-delay-1">
-          <div class="form-heading"><span>Message / 01</span><i data-lucide="send"></i></div>
-          <form id="contactForm" novalidate>
-            <div class="form-row">
-              <div class="form-group"><label for="fname">Your name *</label><input type="text" id="fname" name="name" placeholder="Alexei" maxlength="100" required/></div>
-              <div class="form-group"><label for="femail">Email</label><input type="email" id="femail" name="email" placeholder="you@example.com" maxlength="254"/></div>
-            </div>
-            <div class="form-group"><label for="ftype">Type *</label><select id="ftype" name="type"><option value="feedback">General feedback</option><option value="bug">Bug report</option><option value="feature">Feature request</option><option value="other">Other</option></select></div>
-            <div class="form-group"><label for="fmessage">Message *</label><textarea id="fmessage" name="message" placeholder="Tell us what happened, what you need, or what you would improve..." maxlength="5000" required></textarea></div>
-            <button type="submit" class="form-submit magnetic" id="submitBtn">Send message <i data-lucide="arrow-up-right"></i></button>
-            <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
-          </form>
-        </div>
+        <div class="contact-copy reveal"><div class="eyebrow"><span class="eyebrow-dot"></span> Let's build something</div><h2>Have an idea?<br>Let's make it <em>real.</em></h2><p>Tell me what you're working on. A website, Telegram bot, automation, dashboard — or something that doesn't fit neatly into a category.</p><div class="contact-list"><a href="mailto:hello@rekka.software"><span><i data-lucide="mail"></i></span><div><small>Email</small><strong>hello@rekka.software</strong></div><i data-lucide="arrow-up-right"></i></a><div><span><i data-lucide="clock-3"></i></span><div><small>Availability</small><strong>Taking on selected projects</strong></div></div></div></div>
+        <div class="form-wrap reveal reveal-delay-1"><div class="form-heading"><span>PROJECT / 01</span><i data-lucide="sparkles"></i></div><form id="contactForm" novalidate><div class="form-row"><div class="form-group"><label for="fname">Your name *</label><input id="fname" name="name" required maxlength="100" placeholder="Your name"></div><div class="form-group"><label for="femail">Email</label><input id="femail" name="email" type="email" maxlength="254" placeholder="you@example.com"></div></div><div class="form-group"><label for="ftype">What are you building?</label><select id="ftype" name="type"><option value="other">Website</option><option value="feature">Telegram bot</option><option value="feedback">Automation / integration</option><option value="bug">Existing project / fix</option><option value="other">Something else</option></select></div><div class="form-group"><label for="fmessage">Tell me about it *</label><textarea id="fmessage" name="message" required maxlength="5000" placeholder="What do you want to build? What should it do?"></textarea></div><button type="submit" class="form-submit" id="submitBtn">Send project brief <i data-lucide="arrow-up-right"></i></button><div class="form-msg" id="formMsg" role="status" aria-live="polite"></div></form></div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <a href="#home" class="brand"><span class="brand-mark"><i data-lucide="sparkles"></i></span><span>REKKA<span class="brand-dot">.</span></span></a>
-    <span>© 2026 Rekka Software</span>
-    <div><a href="#platform">Platform</a><a href="#contact">Contact</a><a href="mailto:hello@rekka.software">Email</a></div>
-  </footer>
-
+  <footer class="footer"><a href="#home" class="brand"><span class="brand-mark"><i data-lucide="asterisk"></i></span><span>REKKA<span class="brand-dot">.</span></span></a><span>© 2026 Rekka Software · Daniel</span><div><a href="#work">Work</a><a href="#services">Services</a><a href="mailto:hello@rekka.software">Email</a></div></footer>
   <script src="/js/main.js" defer></script>
 </body>
 </html>

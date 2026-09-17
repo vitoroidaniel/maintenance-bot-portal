@@ -77,7 +77,7 @@ async function sendFeedbackEmail({ name, email, type, message, deviceInfo }) {
   const emailHtml = `
   <div style="font-family:monospace;background:#080a0e;color:#26312e;padding:32px;max-width:620px">
     <div style="border-bottom:1px solid #1f2937;padding-bottom:16px;margin-bottom:24px">
-      <span style="color:#567d94;font-size:1.2rem;font-weight:bold">KURTEX</span>
+      <span style="color:#567d94;font-size:1.2rem;font-weight:bold">REKKA SOFTWARE</span>
       <span style="color:#58625c;font-size:0.8rem;margin-left:12px">Website Submission</span>
     </div>
     <table style="width:100%;border-collapse:collapse;margin-bottom:24px">

@@ -1,16 +1,9 @@
 {
-  "name": "kurtex-web",
-  "version": "2.0.0",
+  "name": "rekka-software-portfolio",
+  "version": "3.0.0",
   "private": true,
   "main": "server.js",
-  "engines": {
-    "node": ">=18"
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "resend": "^3.0.0"
-  }
+  "engines": { "node": ">=18" },
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "express": "^4.18.2", "resend": "^3.0.0" }
 }
