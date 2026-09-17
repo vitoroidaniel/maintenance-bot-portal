@@ -59,35 +59,35 @@ async function sendFeedbackEmail({ name, email, type, message, deviceInfo }) {
   const safeMessage = escapeHtml(message).replace(/\n/g, '<br/>');
 
   const deviceBlock = deviceInfo ? `
-    <div style="margin-top:16px;padding:16px;background:#0d1018;border-left:3px solid #374151">
-      <div style="color:#6b7280;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">Device Info</div>
+    <div style="margin-top:16px;padding:16px;background:#eee7d8;border-left:3px solid #c8876e">
+      <div style="color:#58625c;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">Device Info</div>
       <table style="width:100%;border-collapse:collapse;font-size:0.8rem">
-        <tr><td style="color:#6b7280;padding:4px 0;width:110px">OS</td><td style="color:#f0f2f5">${escapeHtml(deviceInfo.os) || '—'}</td></tr>
-        <tr><td style="color:#6b7280;padding:4px 0">Browser</td><td style="color:#f0f2f5">${escapeHtml(deviceInfo.browser) || '—'}</td></tr>
-        <tr><td style="color:#6b7280;padding:4px 0">Screen</td><td style="color:#f0f2f5">${escapeHtml(deviceInfo.screen) || '—'}</td></tr>
-        <tr><td style="color:#6b7280;padding:4px 0">Language</td><td style="color:#f0f2f5">${escapeHtml(deviceInfo.language) || '—'}</td></tr>
-        <tr><td style="color:#6b7280;padding:4px 0">Timezone</td><td style="color:#f0f2f5">${escapeHtml(deviceInfo.timezone) || '—'}</td></tr>
-        <tr><td style="color:#6b7280;padding:4px 0">Page</td><td style="color:#f0f2f5">${escapeHtml(deviceInfo.page) || '—'}</td></tr>
-        <tr><td style="color:#6b7280;padding:4px 0">Referrer</td><td style="color:#f0f2f5">${escapeHtml(deviceInfo.referrer) || 'Direct'}</td></tr>
-        <tr><td style="color:#6b7280;padding:4px 0">Mobile</td><td style="color:#f0f2f5">${deviceInfo.isMobile ? 'Yes ✓' : 'No'}</td></tr>
-        <tr><td style="color:#6b7280;padding:4px 0">Touch</td><td style="color:#f0f2f5">${deviceInfo.touchDevice ? 'Yes ✓' : 'No'}</td></tr>
+        <tr><td style="color:#58625c;padding:4px 0;width:110px">OS</td><td style="color:#26312e">${escapeHtml(deviceInfo.os) || '—'}</td></tr>
+        <tr><td style="color:#58625c;padding:4px 0">Browser</td><td style="color:#26312e">${escapeHtml(deviceInfo.browser) || '—'}</td></tr>
+        <tr><td style="color:#58625c;padding:4px 0">Screen</td><td style="color:#26312e">${escapeHtml(deviceInfo.screen) || '—'}</td></tr>
+        <tr><td style="color:#58625c;padding:4px 0">Language</td><td style="color:#26312e">${escapeHtml(deviceInfo.language) || '—'}</td></tr>
+        <tr><td style="color:#58625c;padding:4px 0">Timezone</td><td style="color:#26312e">${escapeHtml(deviceInfo.timezone) || '—'}</td></tr>
+        <tr><td style="color:#58625c;padding:4px 0">Page</td><td style="color:#26312e">${escapeHtml(deviceInfo.page) || '—'}</td></tr>
+        <tr><td style="color:#58625c;padding:4px 0">Referrer</td><td style="color:#26312e">${escapeHtml(deviceInfo.referrer) || 'Direct'}</td></tr>
+        <tr><td style="color:#58625c;padding:4px 0">Mobile</td><td style="color:#26312e">${deviceInfo.isMobile ? 'Yes ✓' : 'No'}</td></tr>
+        <tr><td style="color:#58625c;padding:4px 0">Touch</td><td style="color:#26312e">${deviceInfo.touchDevice ? 'Yes ✓' : 'No'}</td></tr>
       </table>
     </div>` : '';
 
   const emailHtml = `
-  <div style="font-family:monospace;background:#080a0e;color:#f0f2f5;padding:32px;max-width:620px">
+  <div style="font-family:monospace;background:#080a0e;color:#26312e;padding:32px;max-width:620px">
     <div style="border-bottom:1px solid #1f2937;padding-bottom:16px;margin-bottom:24px">
-      <span style="color:#e8ff47;font-size:1.2rem;font-weight:bold">KURTEX</span>
-      <span style="color:#6b7280;font-size:0.8rem;margin-left:12px">Website Submission</span>
+      <span style="color:#567d94;font-size:1.2rem;font-weight:bold">KURTEX</span>
+      <span style="color:#58625c;font-size:0.8rem;margin-left:12px">Website Submission</span>
     </div>
     <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
-      <tr><td style="color:#6b7280;padding:6px 0;width:100px;font-size:0.8rem">Type</td><td style="color:#f0f2f5;font-size:0.85rem">${label}</td></tr>
-      <tr><td style="color:#6b7280;padding:6px 0;font-size:0.8rem">Name</td><td style="color:#f0f2f5;font-size:0.85rem">${safeName}</td></tr>
-      <tr><td style="color:#6b7280;padding:6px 0;font-size:0.8rem">Email</td><td style="color:#f0f2f5;font-size:0.85rem">${safeEmail || '—'}</td></tr>
-      <tr><td style="color:#6b7280;padding:6px 0;font-size:0.8rem">Time</td><td style="color:#f0f2f5;font-size:0.85rem">${now}</td></tr>
+      <tr><td style="color:#58625c;padding:6px 0;width:100px;font-size:0.8rem">Type</td><td style="color:#26312e;font-size:0.85rem">${label}</td></tr>
+      <tr><td style="color:#58625c;padding:6px 0;font-size:0.8rem">Name</td><td style="color:#26312e;font-size:0.85rem">${safeName}</td></tr>
+      <tr><td style="color:#58625c;padding:6px 0;font-size:0.8rem">Email</td><td style="color:#26312e;font-size:0.85rem">${safeEmail || '—'}</td></tr>
+      <tr><td style="color:#58625c;padding:6px 0;font-size:0.8rem">Time</td><td style="color:#26312e;font-size:0.85rem">${now}</td></tr>
     </table>
-    <div style="padding:16px;background:#0d1018;border-left:3px solid #e8ff47;margin-bottom:8px">
-      <div style="color:#6b7280;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">Message</div>
+    <div style="padding:16px;background:#eee7d8;border-left:3px solid #c8876e;margin-bottom:8px">
+      <div style="color:#58625c;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">Message</div>
       <div style="line-height:1.8;font-size:0.875rem">${safeMessage}</div>
     </div>
     ${deviceBlock}
@@ -97,7 +97,7 @@ async function sendFeedbackEmail({ name, email, type, message, deviceInfo }) {
     from: RESEND_FROM,
     to: ADMIN_EMAIL,
     reply_to: email || undefined,
-    subject: `[Kurtex] ${label} from ${name}`,
+    subject: `[Rekka] ${label} from ${name}`,
     html: emailHtml,
   });
 }
@@ -175,7 +175,7 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Kurtex Web running on port ${PORT}`);
+  console.log(`Rekka Web running on port ${PORT}`);
   if (!resend || !ADMIN_EMAIL) {
     console.warn('[mail] Contact form email delivery is disabled until RESEND_API_KEY and ADMIN_EMAIL are set.');
   }
