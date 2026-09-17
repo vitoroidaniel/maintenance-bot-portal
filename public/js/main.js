@@ -1,5 +1,5 @@
 /* Rekka Software portfolio — Daniel */
-const GITHUB_USERNAME = 'vitoroidaniel'; // <- change this once
+const GITHUB_USERNAME = 'YOUR_GITHUB_USERNAME'; // <- change this once
 const GITHUB_LIMIT = 6;
 
 const $ = (s, root = document) => root.querySelector(s);
@@ -14,7 +14,7 @@ function initNav(){
     const open = links.classList.toggle('open');
     btn.setAttribute('aria-expanded', String(open));
   });
-  $$('#navLinks a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  $$('#navLinks a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');btn.setAttribute('aria-expanded','false')}));
   let ticking=false;
   window.addEventListener('scroll',()=>{
     if(ticking)return; ticking=true;
@@ -82,3 +82,7 @@ function initForm(){
 }
 
 initNav(); initReveal(); initFilters(); initForm(); initIcons(); loadGithub();
+
+
+// Price CTA pre-fills the project type without adding friction.
+document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener('click',()=>{const select=document.querySelector('#ftype'); if(select){const value=link.dataset.service.toLowerCase().includes('telegram')?'feature':link.dataset.service.toLowerCase().includes('landing')||link.dataset.service.toLowerCase().includes('website')?'other':'other'; select.value=value;}}));
