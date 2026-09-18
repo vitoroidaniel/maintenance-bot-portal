@@ -10,13 +10,17 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const RESEND_FROM = process.env.RESEND_FROM || 'Rekka Software <onboarding@resend.dev>';
 
 const FEEDBACK_TYPE_LABELS = {
-  feedback: '💬 Feedback',
-  bug: '🐛 Bug Report',
-  feature: '✨ Feature Request',
-  other: '📩 Other',
+  website: '🖥️ Website',
+  telegram: '🤖 Telegram bot',
+  automation: '⚙️ Automation / integration',
+  existing: '🔧 Existing project / fix',
+  other: '📩 Something else',
 };
 const MAX_NAME_LEN = 100;
 const MAX_MESSAGE_LEN = 5000;
+// Simple, deliberately permissive email shape check — not a full RFC 5322
+// validator, just enough to catch obvious typos before we try to send mail.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
 const RATE_LIMIT_MAX_REQUESTS = 5;
 
@@ -144,8 +148,13 @@ app.post('/api/feedback', async (req, res) => {
   if (name.trim().length > MAX_NAME_LEN || message.trim().length > MAX_MESSAGE_LEN) {
     return res.status(400).json({ error: 'Name or message is too long.' });
   }
-  if (email !== undefined && typeof email !== 'string') {
-    return res.status(400).json({ error: 'Invalid email.' });
+  // Email is required (not just optional): without it there's no way to
+  // reply to the project brief, which defeats the point of the form.
+  if (typeof email !== 'string' || !email.trim() || !EMAIL_RE.test(email.trim())) {
+    return res.status(400).json({ error: 'A valid email is required so we can reply.' });
+  }
+  if (email.trim().length > 254) {
+    return res.status(400).json({ error: 'Email is too long.' });
   }
 
   const safeType = Object.prototype.hasOwnProperty.call(FEEDBACK_TYPE_LABELS, type) ? type : 'other';

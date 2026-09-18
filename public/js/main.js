@@ -15,6 +15,16 @@ function initNav(){
     btn.setAttribute('aria-expanded', String(open));
   });
   $$('#navLinks a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');btn.setAttribute('aria-expanded','false')}));
+  document.addEventListener('click',e=>{
+    if(!links.classList.contains('open'))return;
+    if(links.contains(e.target)||btn.contains(e.target))return;
+    links.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&links.classList.contains('open')){
+      links.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.focus();
+    }
+  });
   let ticking=false;
   window.addEventListener('scroll',()=>{
     if(ticking)return; ticking=true;
@@ -47,6 +57,27 @@ function setGithubStats(repos){
   if(stars) stars.textContent=repos.reduce((n,r)=>n+(r.stargazers_count||0),0);
 }
 
+// When GitHub isn't wired up yet, don't leave the hero stats stuck on "—"
+// forever — that reads as broken to a real visitor. Swap in copy that's
+// true regardless of whether GitHub is connected.
+function setFallbackStats(){
+  const builds=$('#statBuilds'), stars=$('#statStars');
+  if(builds) builds.innerHTML='<b>Solo</b> no agency layers';
+  if(stars) stars.innerHTML='<b>Fast</b> practical builds';
+}
+
+// Point every GitHub-dependent link at the real profile once configured;
+// otherwise hide them rather than link to the generic github.com homepage.
+function wireGithubLinks(){
+  const profileUrl = `https://github.com/${encodeURIComponent(GITHUB_USERNAME)}`;
+  const links=[$('#workGithubLink'), $('#contactGithubLink')];
+  if(!GITHUB_USERNAME || GITHUB_USERNAME==='YOUR_GITHUB_USERNAME'){
+    links.forEach(a=>{if(a) a.style.display='none';});
+    return;
+  }
+  links.forEach(a=>{if(a) a.href=profileUrl;});
+}
+
 function repoCard(repo){
   const card=document.createElement('article'); card.className='repo-card';
   const description=repo.description||'A project by Daniel / Rekka Software.';
@@ -57,18 +88,34 @@ function repoCard(repo){
 function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
 async function loadGithub(){
-  const wrap=$('#githubRepos'), status=$('#githubStatus');
+  wireGithubLinks();
+  const panel=$('#githubPanel'), wrap=$('#githubRepos'), status=$('#githubStatus');
   if(!wrap||!status)return;
   if(!GITHUB_USERNAME||GITHUB_USERNAME==='YOUR_GITHUB_USERNAME'){
-    status.textContent='Add your GitHub username'; wrap.innerHTML='<div class="repo-card"><div class="repo-top"><span class="repo-name">Connect GitHub</span><span class="repo-lang">SETUP</span></div><p>Open public/js/main.js and replace YOUR_GITHUB_USERNAME with your GitHub username.</p><div class="repo-bottom"><span><i data-lucide="github"></i> Live repos</span></div></div><div class="repo-card"><div class="repo-top"><span class="repo-name">Automatic cards</span><span class="repo-lang">LIVE</span></div><p>Your public repositories will appear here automatically with stars, forks, language and descriptions.</p><div class="repo-bottom"><span><i data-lucide="refresh-cw"></i> Auto updated</span></div></div><div class="repo-card"><div class="repo-top"><span class="repo-name">Your portfolio</span><span class="repo-lang">READY</span></div><p>Add screenshots above and use GitHub here as proof that the work is real and active.</p><div class="repo-bottom"><span><i data-lucide="image"></i> Add your work</span></div></div>';initIcons();return;}
+    // Not configured yet: hide the whole panel rather than show visitors
+    // dev-facing setup instructions and a permanently-loading skeleton.
+    if(panel) panel.style.display='none';
+    setFallbackStats();
+    return;
+  }
   try{
     const res=await fetch(`https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}/repos?sort=updated&direction=desc&per_page=${GITHUB_LIMIT}`,{headers:{Accept:'application/vnd.github+json'}});
     if(!res.ok)throw new Error('GitHub request failed');
     const repos=(await res.json()).filter(r=>!r.fork).slice(0,GITHUB_LIMIT);
+    if(!repos.length){
+      if(panel) panel.style.display='none';
+      setFallbackStats();
+      return;
+    }
     wrap.innerHTML=''; repos.forEach(r=>wrap.appendChild(repoCard(r))); setGithubStats(repos);
     status.textContent=`${repos.length} recent public repos`;
     initIcons();
-  }catch(err){status.textContent='GitHub unavailable';wrap.innerHTML='<div class="repo-card"><div class="repo-name">Could not load repositories</div><p>Check the username in main.js or open GitHub directly.</p></div>';}
+  }catch(err){
+    // GitHub down or username wrong: fail quietly rather than show a
+    // permanent error state on a live marketing page.
+    if(panel) panel.style.display='none';
+    setFallbackStats();
+  }
 }
 
 function initForm(){
@@ -113,4 +160,8 @@ initNav(); initReveal(); initFilters(); initForm(); initIcons(); loadGithub(); i
 
 
 // Price CTA pre-fills the project type without adding friction.
-document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener('click',()=>{const select=document.querySelector('#ftype'); if(select){const value=link.dataset.service.toLowerCase().includes('telegram')?'feature':link.dataset.service.toLowerCase().includes('landing')||link.dataset.service.toLowerCase().includes('website')?'other':'other'; select.value=value;}}));
+// data-service values match the #ftype <option> values directly.
+document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener('click',()=>{
+  const select=document.querySelector('#ftype');
+  if(select && link.dataset.service) select.value=link.dataset.service;
+}));
