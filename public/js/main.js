@@ -184,3 +184,22 @@ function initMouseGlow(){
   window.addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;if(!raf)raf=requestAnimationFrame(()=>{glow.style.transform=`translate3d(${x-140}px,${y-140}px,0)`;raf=0})},{passive:true});
 }
 initPointerLife(); initMouseGlow();
+
+function initWorkCarousel(){
+  const rail=document.querySelector('#projectGrid'), prev=document.querySelector('#workPrev'), next=document.querySelector('#workNext');
+  if(!rail||!prev||!next)return;
+  const step=()=>Math.min(rail.clientWidth*.72,760)+20;
+  prev.addEventListener('click',()=>rail.scrollBy({left:-step(),behavior:'smooth'}));
+  next.addEventListener('click',()=>rail.scrollBy({left:step(),behavior:'smooth'}));
+  rail.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){e.preventDefault();rail.scrollBy({left:e.deltaY*.8,behavior:'auto'})}},{passive:false});
+}
+function initPriceSelection(){
+  const cards=document.querySelectorAll('.price-card');
+  cards.forEach(card=>{
+    card.addEventListener('mouseenter',()=>cards.forEach(c=>c.classList.toggle('price-active',c===card)));
+    card.addEventListener('focusin',()=>cards.forEach(c=>c.classList.toggle('price-active',c===card)));
+  });
+  const grid=document.querySelector('.price-grid');
+  if(grid)grid.addEventListener('mouseleave',()=>cards.forEach(c=>c.classList.remove('price-active')));
+}
+initWorkCarousel();initPriceSelection();
