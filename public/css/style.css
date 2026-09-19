@@ -719,3 +719,40 @@ body{background:#f8f2e7}
 .price-featured{padding-top:58px!important}
 .price-badge{top:16px!important;right:16px!important;left:auto!important;transform:none!important;max-width:calc(100% - 32px);white-space:nowrap;z-index:4}
 .price-featured .price-top{margin-top:0}
+
+/* v9 — process / pricing / FAQ refinement */
+.process-grid.process-flow{gap:16px;position:relative}
+.process-flow .process-step{min-height:250px;padding:24px 24px 26px;display:grid;grid-template-rows:auto 1fr auto;align-content:stretch;overflow:visible;background:rgba(255,252,245,.76)!important;box-shadow:0 14px 34px rgba(69,58,42,.035)}
+.process-flow .process-step:nth-child(2){background:linear-gradient(145deg,rgba(234,241,231,.82),rgba(255,249,239,.76))!important}
+.process-flow .process-step:nth-child(3){background:linear-gradient(145deg,rgba(250,235,224,.84),rgba(255,249,239,.76))!important}
+.process-flow .process-step:nth-child(4){background:linear-gradient(145deg,rgba(230,240,229,.86),rgba(255,249,239,.76))!important}
+.process-flow .process-step>span{font:700 .58rem 'Space Mono';color:#667069}
+.process-icon{width:46px;height:46px;border-radius:15px;margin:36px 0 20px}
+.process-flow .process-step h3{font-size:1.45rem;margin:0 0 8px}
+.process-flow .process-step p{margin:0;max-width:235px}
+.process-arrow{right:-17px;top:50%;transform:translateY(-50%);width:34px;height:34px;border:5px solid #f5efe4;box-shadow:none;font-size:0}
+.process-arrow:after{content:'→';font-size:15px}
+.process-flow .process-step:hover .process-arrow{background:var(--terra);transform:translateY(-50%) translateX(3px)}
+.process-flow .process-step:last-child small{margin-top:18px;padding:0;font-size:.78rem;line-height:1.45}
+
+.price-featured{padding-top:28px}
+.price-featured .price-top{padding-right:116px}
+.price-badge{top:18px!important;right:18px!important;display:flex;align-items:center;gap:6px;background:rgba(199,131,109,.14)!important;color:#a85f49!important;border:1px solid rgba(199,131,109,.25);padding:7px 10px!important;box-shadow:none;text-transform:none!important;letter-spacing:.01em!important;font-family:'DM Sans',sans-serif!important;font-size:.62rem!important}
+.price-badge svg{width:12px;height:12px;stroke-width:2}
+
+.product-window-copy strong{font-size:clamp(1.75rem,2.65vw,2.85rem);line-height:1;letter-spacing:-.055em}
+.product-window-copy p{max-width:300px}
+
+.faq{padding-top:85px}
+.faq-shell{display:grid;grid-template-columns:.72fr 1.28fr;gap:72px;align-items:start;padding:38px;border:1px solid var(--line);border-radius:34px;background:linear-gradient(145deg,rgba(235,241,230,.7),rgba(255,249,239,.68) 45%,rgba(248,232,220,.55));box-shadow:0 24px 65px rgba(69,58,42,.055)}
+.faq-intro{position:sticky;top:115px;padding:8px 8px 20px}
+.faq-intro h2{font-size:clamp(2.7rem,4.7vw,5.1rem);margin:20px 0 18px;line-height:.92}
+.faq-intro p{color:var(--muted);max-width:420px;line-height:1.7}
+.faq-list{max-width:none;margin:0;background:rgba(255,252,246,.72);border:1px solid rgba(55,62,57,.1);border-radius:26px;padding:8px 22px;box-shadow:0 12px 35px rgba(69,58,42,.035)}
+.faq-item{padding:0 4px}
+.faq-item summary{padding:22px 4px;font-size:1rem}
+.faq-item summary svg{width:32px;height:32px;padding:8px;border-radius:50%;background:#f0eadf;color:var(--ink)}
+.faq-item[open] summary svg{background:var(--terra);color:#fff}
+.faq-item p{margin:0 52px 24px 4px;padding:0 0 4px;max-width:680px}
+@media(max-width:900px){.process-flow .process-step{min-height:230px}.process-arrow{display:none!important}.faq-shell{grid-template-columns:1fr;gap:28px;padding:28px}.faq-intro{position:static}.price-featured .price-top{padding-right:0;padding-top:30px}}
+@media(max-width:560px){.process-flow .process-step{min-height:210px}.faq-shell{padding:20px;border-radius:26px}.faq-list{padding:5px 15px}.faq-item summary{font-size:.92rem}.faq-item p{margin-right:12px}.price-badge{top:14px!important;right:14px!important}}
