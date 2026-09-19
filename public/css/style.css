@@ -756,3 +756,44 @@ body{background:#f8f2e7}
 .faq-item p{margin:0 52px 24px 4px;padding:0 0 4px;max-width:680px}
 @media(max-width:900px){.process-flow .process-step{min-height:230px}.process-arrow{display:none!important}.faq-shell{grid-template-columns:1fr;gap:28px;padding:28px}.faq-intro{position:static}.price-featured .price-top{padding-right:0;padding-top:30px}}
 @media(max-width:560px){.process-flow .process-step{min-height:210px}.faq-shell{padding:20px;border-radius:26px}.faq-list{padding:5px 15px}.faq-item summary{font-size:.92rem}.faq-item p{margin-right:12px}.price-badge{top:14px!important;right:14px!important}}
+
+/* v10 — rounded typography, stable FAQ, clean pricing badge, code illustration */
+body,button,input,textarea,select{font-family:'Nunito Sans',sans-serif}
+h1,h2,h3,.brand,.showcase-copy strong,.product-window-copy strong,.price strong{font-family:'Nunito Sans',sans-serif!important}
+h1,h2{letter-spacing:-.045em}h3{letter-spacing:-.025em}
+em{font-family:'Nunito Sans',sans-serif!important;font-style:italic;font-weight:700}
+.brand{letter-spacing:.035em}
+
+/* Pricing: one badge only; no hover-generated SELECTED label */
+.price-grid .price-card:hover:before,.price-grid .price-card.price-active:before{content:none!important;display:none!important}
+.price-featured{padding-top:30px!important}
+.price-badge{position:absolute!important;top:18px!important;right:18px!important;left:auto!important;max-width:none!important;padding:6px 10px!important;border-radius:999px!important;background:#f3e1d7!important;border:1px solid rgba(174,103,78,.22)!important;color:#a85f49!important;font-family:'Nunito Sans',sans-serif!important;font-size:.68rem!important;font-weight:800!important;line-height:1!important;box-shadow:0 5px 14px rgba(111,75,55,.05)!important}
+.price-badge:after{content:none!important}
+.price-featured .price-top{padding-right:128px}
+
+/* FAQ: opening an answer never changes the section's footprint */
+.faq-shell{height:570px;min-height:570px;align-items:stretch;overflow:hidden}
+.faq-intro{height:100%;display:flex;flex-direction:column;align-items:flex-start}
+.faq-intro .mini-cta{margin-top:auto}
+.faq-list{height:100%;max-height:100%;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding:10px 20px 10px 28px;background:rgba(255,252,246,.72);border:1px solid rgba(39,49,47,.1);border-radius:28px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:last-child{border-bottom:0}
+.faq-item summary{cursor:pointer;position:sticky;top:0;background:rgba(255,252,246,.94);z-index:1}
+.faq-item p{padding:4px 0 22px;line-height:1.7;color:var(--muted)}
+.faq-list::-webkit-scrollbar{width:8px}.faq-list::-webkit-scrollbar-thumb{background:rgba(39,49,47,.16);border-radius:99px}.faq-list::-webkit-scrollbar-track{background:transparent}
+
+/* Replace slogan mockup with a simple code illustration */
+.hero-product-scene{overflow:hidden}
+.code-window-body{display:block!important;padding:30px!important}
+.code-editor{height:100%;border:1px solid rgba(39,49,47,.12);border-radius:22px;overflow:hidden;background:#26312f;box-shadow:0 24px 55px rgba(39,49,47,.18);transform:rotate(-1deg);transition:transform .45s ease,box-shadow .45s ease}
+.hero-product-scene:hover .code-editor{transform:rotate(0deg) translateY(-4px);box-shadow:0 30px 65px rgba(39,49,47,.22)}
+.code-editor-tabs{height:46px;display:flex;align-items:flex-end;gap:4px;padding:0 14px;background:#313c39;border-bottom:1px solid rgba(255,255,255,.08)}
+.code-editor-tabs span{padding:10px 15px 9px;border-radius:10px 10px 0 0;color:#9fa9a4;font:700 .65rem 'Space Mono',monospace}.code-editor-tabs .active{background:#26312f;color:#f6efe4}
+.code-editor-main{display:grid;grid-template-columns:42px 1fr;min-height:285px;padding:24px 0;background:radial-gradient(circle at 80% 20%,rgba(122,151,139,.12),transparent 35%),#26312f}
+.code-lines{display:grid;align-content:start;gap:8px;padding:1px 12px;color:#65716d;text-align:right;font:400 .68rem/1.55 'Space Mono',monospace;border-right:1px solid rgba(255,255,255,.06)}
+.code-editor pre{margin:0;padding:0 24px;overflow:hidden;color:#d9dfda;font:500 clamp(.72rem,1.1vw,.9rem)/1.55 'Space Mono',monospace;white-space:pre-wrap}.code-editor code b{color:#e2aa87}.code-editor code i{color:#b8c991;font-style:normal}.code-editor code em{color:#8eb2bd!important;font:inherit!important;font-style:normal!important}
+.code-editor-status{height:38px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;background:#dfe7dc;color:#52615b;font:700 .58rem 'Space Mono',monospace;letter-spacing:.03em}.code-editor-status span:first-child{color:#657d68}
+.scene-card,.garden-note.note-two{display:none!important}
+
+@media(max-width:900px){.faq-shell{height:650px;min-height:650px}.faq-intro{height:auto}.faq-intro .mini-cta{margin-top:12px}.faq-list{min-height:330px}.price-featured .price-top{padding-right:0;padding-top:34px}}
+@media(max-width:560px){.faq-shell{height:700px;min-height:700px}.faq-list{padding:6px 12px}.code-window-body{padding:18px!important}.code-editor-main{min-height:250px}.code-editor pre{padding:0 14px;font-size:.64rem}.code-lines{padding:1px 8px}.price-badge{top:12px!important;right:12px!important}}

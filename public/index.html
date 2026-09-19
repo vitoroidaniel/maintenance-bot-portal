@@ -55,11 +55,28 @@
     <div class="scene-bee scene-bee-a"><span></span><i></i></div><div class="scene-bee scene-bee-b"><span></span><i></i></div>
     <div class="product-window">
       <div class="product-window-bar"><i></i><i></i><i></i><span>studio.rekka</span></div>
-      <div class="product-window-body"><div class="product-window-copy"><small>REKKA / PRODUCT STUDIO</small><strong>Made to make<br/>work simpler.</strong><p>Useful products, thoughtful automation and software built around real work.</p><a href="#products">See what Rekka builds →</a></div><div class="product-window-metrics"><div><span>ACTIVE BUILDS</span><b>03</b></div><div><span>AUTOMATIONS</span><b>24/7</b></div><div class="metric-bars"><i></i><i></i><i></i><i></i></div></div></div>
+      <div class="product-window-body code-window-body">
+        <div class="code-editor" aria-label="Illustrated code editor">
+          <div class="code-editor-tabs"><span class="active">rekka.js</span><span>styles.css</span></div>
+          <div class="code-editor-main">
+            <div class="code-lines"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span></div>
+            <pre><code><b>const</b> idea = <i>"something useful"</i>;
+<b>const</b> product = rekka.build({
+  idea,
+  <em>simple:</em> true,
+  <em>human:</em> true,
+  <em>readyToShip:</em> true
+});
+
+product.launch();</code></pre>
+          </div>
+          <div class="code-editor-status"><span>● Rekka Studio</span><span>Ready to build</span></div>
+        </div>
+      </div>
     </div>
-    <div class="scene-card scene-card-one"><b>Build</b><span>Idea → shipped</span></div>
-    <div class="scene-card scene-card-two"><b>Automate</b><span>Less repetitive work</span></div>
-    <div class="garden-note note-two">Small ideas.<br/><em>Big things.</em></div>
+
+
+
   </div>
   <div class="hero-service-grid">
     <a class="hero-service-card" href="#products"><i data-lucide="code-2"></i><div><h3>Products</h3><p>Ready-to-use software built for real problems.</p></div><span>→</span></a>
