@@ -1,3 +1,9 @@
+
+// Always open the homepage at the hero instead of restoring an old scroll position.
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.addEventListener('pageshow', () => {
+  if (!location.hash) window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+});
 /* Rekka Software portfolio — Daniel */
 const GITHUB_USERNAME = 'YOUR_GITHUB_USERNAME'; // <- change this once
 const GITHUB_LIMIT = 6;
