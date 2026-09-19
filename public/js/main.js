@@ -209,3 +209,17 @@ function initPriceSelection(){
   if(grid)grid.addEventListener('mouseleave',()=>cards.forEach(c=>c.classList.remove('price-active')));
 }
 initWorkCarousel();initPriceSelection();
+
+function initWorkRailDirection(){
+  const rail=document.querySelector('#projectGrid'); if(!rail)return;
+  let dir=1, timer;
+  const update=()=>{
+    const max=rail.scrollWidth-rail.clientWidth;
+    if(rail.scrollLeft>=max-8) dir=-1;
+    else if(rail.scrollLeft<=8) dir=1;
+    rail.dataset.travel=dir>0?'right':'left';
+  };
+  rail.addEventListener('scroll',()=>{clearTimeout(timer);timer=setTimeout(update,70)},{passive:true});
+  update();
+}
+initWorkRailDirection();
