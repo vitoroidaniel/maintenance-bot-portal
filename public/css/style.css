@@ -663,3 +663,59 @@ body{background:#f8f2e7}
 
 /* Process: less empty, more directional and alive */
 .process-grid.process-flow{overflow:visible;background:transparent;border:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.process-flow .process-step{position:relative;min-height:300px;padding:28px 26px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(155deg,rgba(255,252,245,.82),rgba(240,234,219,.58));box-shadow:0 15px 38px rgba(69,58,42,.04)}.process-flow .process-step:nth-child(2){background:linear-gradient(155deg,#edf1e8,#f7efe2)}.process-flow .process-step:nth-child(3){background:linear-gradient(155deg,#f7eadf,#f7f1e5)}.process-flow .process-step:nth-child(4){background:linear-gradient(155deg,#e6eee4,#f5eee0)}.process-icon{width:50px;height:50px;border-radius:17px;display:grid;place-items:center;margin:48px 0 25px;background:rgba(199,131,109,.13);color:var(--terra)}.process-icon svg{width:22px}.process-flow .process-step h3{font-size:1.55rem}.process-flow .process-step p{font-size:.8rem;line-height:1.6;color:var(--muted)}.process-arrow{position:absolute;right:-24px;top:50%;z-index:3;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-weight:400;box-shadow:0 8px 20px rgba(40,48,44,.13)}.process-flow .process-step:last-child small{display:block;margin-top:28px;font-family:Georgia,serif;font-style:italic;color:#748b7c}.process-flow .process-step:last-child .process-arrow{display:none}@media(max-width:900px){.process-grid.process-flow{grid-template-columns:1fr 1fr}.process-arrow{display:none}}@media(max-width:560px){.process-grid.process-flow{grid-template-columns:1fr}.process-flow .process-step{min-height:240px}.process-icon{margin-top:35px}}
+
+/* v8 — clearer navigation, cleaner work rail, polished process + hero */
+@media (min-width: 901px){
+  .nav{width:min(calc(100% - 36px),1180px);height:64px;padding:0 12px 0 16px;gap:18px}
+  .nav-links{position:static!important;display:flex!important;align-items:center;gap:3px;width:auto;margin:0 auto;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;opacity:1!important;visibility:visible!important;transform:none!important}
+  .nav-links a{display:block;padding:9px 11px;border-radius:999px;font-size:.76rem;color:var(--muted-strong);white-space:nowrap}
+  .nav-links a:hover,.nav-links a.current{background:rgba(155,178,181,.16);color:var(--ink)}
+  .menu-btn{display:none!important}
+  .nav-right{margin-left:0;gap:8px}
+  .nav-status{display:inline-flex}
+  .nav-cta{padding:11px 16px}
+}
+@media (max-width:900px){
+  .nav{width:calc(100% - 22px);height:60px;padding:0 10px 0 14px}
+  .nav-links{position:absolute;left:8px;right:8px;top:67px;width:auto;display:flex!important;gap:5px;padding:8px;overflow-x:auto;scrollbar-width:none;border:1px solid var(--line);border-radius:20px;background:rgba(250,247,239,.97);box-shadow:0 18px 45px rgba(54,48,39,.12);opacity:1;visibility:visible;transform:none}
+  .nav-links a{flex:0 0 auto;padding:10px 12px;font-size:.72rem}
+  .menu-btn{display:none!important}.nav-right{margin-left:auto}.nav-status{display:none}
+}
+@media (max-width:560px){.nav-cta{display:inline-flex!important;padding:10px 13px}.nav-links{top:64px}.brand>span:last-child{font-size:.86rem}}
+
+/* Hero scene: prevent headline clipping and give the composition breathing room */
+.product-window{left:7%;right:7%;top:12%;bottom:12%;transform:rotate(-1deg)}
+.product-window-body{grid-template-columns:minmax(0,1.35fr) minmax(145px,.65fr);gap:22px;padding:34px 32px}
+.product-window-copy strong{font-size:clamp(1.8rem,2.8vw,3rem);line-height:.94;max-width:100%;overflow-wrap:normal}
+.product-window-copy p{max-width:270px;line-height:1.55}
+.scene-card-one{left:2%;bottom:6%}.scene-card-two{right:2%;top:10%}
+@media(max-width:620px){.product-window{left:6%;right:6%;top:10%;bottom:10%}.product-window-body{grid-template-columns:1fr;padding:28px 24px}.product-window-metrics{display:none}.product-window-copy strong{font-size:2.2rem}.scene-card{display:none}}
+
+/* Work: full-width, predictable horizontal cards; alternate content direction */
+.work-section{overflow:hidden}
+.work-toolbar{position:relative;z-index:3}
+.project-grid{width:100%;margin:0;display:flex!important;gap:26px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:clamp(18px,5vw,72px);padding:8px clamp(18px,5vw,72px) 34px!important;box-sizing:border-box;scroll-behavior:smooth}
+.project-grid::-webkit-scrollbar{display:none}
+.project-card,.project-card:not(.project-featured){flex:0 0 min(1080px,calc(100vw - clamp(48px,10vw,144px)))!important;min-width:0;min-height:500px;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);overflow:hidden;border-radius:32px;scroll-snap-align:start}
+.project-card:nth-child(even){grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)}
+.project-card .project-image{min-width:0;overflow:hidden}.project-card .project-body{min-width:0;padding:clamp(28px,4vw,52px)}
+.project-card .project-body p{max-width:560px}.project-card:nth-child(even) .project-image{order:2}.project-card:nth-child(even) .project-body{order:1}
+.work-arrow{background:#fffaf1;box-shadow:0 8px 22px rgba(64,55,42,.06)}
+@media(max-width:760px){.project-grid{padding-inline:16px!important;scroll-padding-inline:16px}.project-card,.project-card:not(.project-featured){flex-basis:calc(100vw - 32px)!important;grid-template-columns:1fr;min-height:0}.project-card:nth-child(even){grid-template-columns:1fr}.project-card:nth-child(even) .project-image,.project-card:nth-child(even) .project-body{order:initial}.project-card .project-image{min-height:300px!important}.work-controls{width:auto}}
+
+/* Process: remove awkward overlapping half-circles and make progression intentional */
+.process-grid.process-flow{gap:18px}
+.process-flow .process-step{min-height:285px;padding:28px 26px 30px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.process-flow .process-step:hover{transform:translateY(-7px);box-shadow:0 22px 48px rgba(69,58,42,.09);border-color:rgba(199,131,109,.3)}
+.process-icon{margin:42px 0 24px}
+.process-arrow{right:22px;top:auto;bottom:22px;width:36px;height:36px;background:rgba(39,49,47,.08);color:var(--ink);box-shadow:none;transition:.25s}
+.process-step:hover .process-arrow{background:var(--ink);color:#fff;transform:translateX(3px)}
+.process-flow .process-step:last-child small{margin-top:24px;padding-right:30px}
+@media(max-width:900px){.process-arrow{display:grid}.process-flow .process-step:nth-child(2) .process-arrow{display:none}}
+@media(max-width:560px){.process-arrow{display:none!important}}
+
+/* Pricing badge: keep it inside the card and away from icons/content */
+.price-card{overflow:hidden}
+.price-featured{padding-top:58px!important}
+.price-badge{top:16px!important;right:16px!important;left:auto!important;transform:none!important;max-width:calc(100% - 32px);white-space:nowrap;z-index:4}
+.price-featured .price-top{margin-top:0}
