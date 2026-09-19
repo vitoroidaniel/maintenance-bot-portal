@@ -165,3 +165,22 @@ document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener(
   const select=document.querySelector('#ftype');
   if(select && link.dataset.service) select.value=link.dataset.service;
 }));
+
+function initPointerLife(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(pointer: coarse)').matches) return;
+  const cards=$$('.product-tile,.lab-project,.service,.usecase-card,.price-card,.why-card,.process-step');
+  cards.forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(900px) rotateX(${-y*2.2}deg) rotateY(${x*2.2}deg) translateY(-5px)`;
+    });
+    card.addEventListener('mouseleave',()=>card.style.transform='');
+  });
+}
+function initMouseGlow(){
+  if(window.matchMedia('(pointer: coarse)').matches) return;
+  const glow=document.createElement('div'); glow.className='mouse-glow'; document.body.appendChild(glow);
+  let raf=0,x=0,y=0;
+  window.addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;if(!raf)raf=requestAnimationFrame(()=>{glow.style.transform=`translate3d(${x-140}px,${y-140}px,0)`;raf=0})},{passive:true});
+}
+initPointerLife(); initMouseGlow();
