@@ -5,7 +5,7 @@ window.addEventListener('pageshow', () => {
   if (!location.hash) window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 });
 /* Rekka Software portfolio — Daniel */
-const GITHUB_USERNAME = 'YOUR_GITHUB_USERNAME'; // <- change this once
+const GITHUB_USERNAME = 'vitoroidaniel'; // <- change this once
 const GITHUB_LIMIT = 6;
 
 const $ = (s, root = document) => root.querySelector(s);
