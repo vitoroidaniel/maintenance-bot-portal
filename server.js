@@ -133,7 +133,8 @@ setInterval(() => {
 app.set('trust proxy', 1);
 
 app.use(express.json({ limit: '10kb' }));
-app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1d' }));
+const staticDir = path.join(__dirname, 'dist');
+app.use(express.static(staticDir, { maxAge: '1d' }));
 
 app.post('/api/feedback', async (req, res) => {
   if (isRateLimited(req.ip)) {
@@ -180,7 +181,7 @@ app.post('/api/feedback', async (req, res) => {
 
 // SPA-style fallback for any non-API route.
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(staticDir, 'index.html'));
 });
 
 app.listen(PORT, () => {
