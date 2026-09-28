@@ -1,40 +1,36 @@
-import React,{useEffect,useRef,useState}from'react';
-import gsap from'gsap';
+import React,{useEffect,useRef,useState} from 'react';
 
 export default function Loader({onDone}){
- const root=useRef(null), raven=useRef(null), ember=useRef(null), person=useRef(null), light=useRef(null), copy=useRef(null);
- const [skip,setSkip]=useState(false);
- useEffect(()=>{if(skip){onDone?.();return}const ctx=gsap.context(()=>{
-  const tl=gsap.timeline({onComplete:()=>{gsap.to(root.current,{opacity:0,duration:.7,onComplete:onDone})}});
-  tl.fromTo('.intro-world',{scale:1.04},{scale:1,duration:1.4,ease:'power2.out'})
-    .fromTo(raven.current,{x:'-32vw',y:'-8vh',rotation:-5,opacity:0},{x:'34vw',y:'5vh',rotation:3,opacity:1,duration:2.35,ease:'power1.inOut'},.35)
-    .to('.wing-a',{rotation:-17,duration:.22,yoyo:true,repeat:8,ease:'sine.inOut'},.35)
-    .to('.wing-b',{rotation:17,duration:.22,yoyo:true,repeat:8,ease:'sine.inOut'},.35)
-    .set(ember.current,{opacity:1,x:'36vw',y:'31vh'},1.55)
-    .to(ember.current,{x:'44vw',y:'69vh',rotation:130,duration:1.55,ease:'power2.in'},1.55)
-    .to('.intro-world',{scale:1.38,x:'-5vw',y:'-10vh',duration:1.55,ease:'power2.inOut'},1.55)
-    .to(raven.current,{x:'75vw',y:'-12vh',opacity:.2,duration:1.15},1.65)
-    .to(ember.current,{opacity:0,duration:.15},3.05)
-    .to(light.current,{scale:1,opacity:1,duration:1.15,ease:'power3.out'},3.0)
-    .to(person.current,{filter:'brightness(1.5)',duration:.8},3.05)
-    .to('.forest-near',{filter:'brightness(.68) saturate(.8)',duration:1.1},3.0)
-    .to(person.current,{x:'10vw',y:'-5vh',scale:.88,duration:1.55,ease:'power1.inOut'},4.05)
-    .to('.intro-world',{scale:1.18,x:'-2vw',y:'-4vh',duration:1.55},4.05)
-    .to(copy.current,{opacity:1,y:0,duration:.9,ease:'power3.out'},4.65)
-    .to({}, {duration:1.35})
-    .to('.intro-curtain',{scaleY:1,duration:.65,ease:'power4.inOut'});
- },root);return()=>ctx.revert()},[skip,onDone]);
- return <div className="story-intro" ref={root}>
-  <button className="skip-intro" onClick={()=>setSkip(true)}>Skip intro</button>
-  <div className="intro-world">
-   <div className="sky-haze"/><div className="forest forest-far"/><div className="forest forest-mid"/><div className="forest forest-near"/>
-   <div className="path"/>
-   <div className="person" ref={person}><i className="person-head"/><i className="person-body"/><i className="person-arm"/></div>
-   <div className="catch-light" ref={light}/>
-   <div className="raven2d" ref={raven} aria-hidden="true"><i className="wing wing-a"/><i className="wing wing-b"/><i className="bird-body"/><i className="bird-head"/><i className="bird-tail"/><i className="bird-beak"/><i className="carried-light"/></div>
-   <div className="falling-light" ref={ember}><i/></div>
-  </div>
-  <div className="story-copy" ref={copy}><span>REKKA / 00 — FIND THE WAY</span><h1>Every idea starts<br/>in the <em>dark.</em></h1><p>We help you find the way forward.</p></div>
-  <div className="intro-hint">A small light can change the whole path.</div><div className="intro-curtain"/>
+ const root=useRef(null); const [phase,setPhase]=useState('flight');
+ useEffect(()=>{
+   const timers=[
+    setTimeout(()=>setPhase('drop'),1800),
+    setTimeout(()=>setPhase('catch'),3500),
+    setTimeout(()=>setPhase('walk'),4800),
+    setTimeout(()=>setPhase('message'),6100),
+    setTimeout(()=>{root.current?.classList.add('intro-out');setTimeout(onDone,850)},8200)
+   ]; return()=>timers.forEach(clearTimeout)
+ },[onDone]);
+ return <div ref={root} className={`intro intro-${phase}`}>
+   <div className="forest-camera">
+    <div className="forest forest-far"/>
+    <div className="forest forest-mid"/>
+    <div className="forest forest-near"/>
+    <div className="mist mist-a"/><div className="mist mist-b"/>
+    <svg className="intro-human" viewBox="0 0 90 150" aria-hidden="true">
+      <ellipse cx="45" cy="25" rx="16" ry="20" fill="currentColor"/>
+      <path d="M28 47 Q45 37 62 47 L70 104 Q46 119 20 104Z" fill="currentColor"/>
+      <path d="M28 102 18 145M61 103 72 145M26 57 8 92M62 58 81 89" fill="none" stroke="currentColor" strokeWidth="12" strokeLinecap="round"/>
+    </svg>
+    <svg className="intro-raven" viewBox="0 0 300 120" aria-hidden="true">
+      <path d="M146 61c-24-17-48-37-77-48 15 19 27 34 33 48-35-17-63-20-92-17 37 15 65 32 91 50 17 12 38 17 56 8 16-8 26-20 36-31 21-24 51-39 97-48-40-6-74 2-105 22 7-15 18-30 32-45-29 11-51 29-71 61Z" fill="currentColor"/>
+      <path d="M146 62c19-12 34-9 46 2-13 7-27 13-43 18-13-4-18-11-3-20Z" fill="currentColor"/>
+      <circle cx="181" cy="61" r="2.8" fill="#fff"/>
+    </svg>
+    <div className="torch"><i/><b/></div>
+    <div className="catch-light"/>
+   </div>
+   <div className="intro-copy"><small>REKKA / SOFTWARE STUDIO</small><h1>Every idea starts<br/>in the dark.</h1><p>We help you find the way forward.</p></div>
+   <button className="skip" onClick={onDone}>Skip intro</button>
  </div>
 }

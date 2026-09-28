@@ -1,15 +1,11 @@
 # REKKA Software
 
-React/Vite website for REKKA Software. Includes a lightweight 2D cinematic forest intro, responsive dark/light themes, project showcase, services, process, and contact flow.
+React/Vite studio website with multi-page navigation, dark/light themes and a lightweight 2D cinematic forest intro.
 
-## Run
-```bash
+## Development
 npm install
 npm run dev
-```
 
 ## Production
-```bash
 npm run build
 npm start
-```
