@@ -1,36 +1,7 @@
 import React,{useEffect,useRef,useState} from 'react';
-
-export default function Loader({onDone}){
- const root=useRef(null); const [phase,setPhase]=useState('flight');
- useEffect(()=>{
-   const timers=[
-    setTimeout(()=>setPhase('drop'),1800),
-    setTimeout(()=>setPhase('catch'),3500),
-    setTimeout(()=>setPhase('walk'),4800),
-    setTimeout(()=>setPhase('message'),6100),
-    setTimeout(()=>{root.current?.classList.add('intro-out');setTimeout(onDone,850)},8200)
-   ]; return()=>timers.forEach(clearTimeout)
- },[onDone]);
- return <div ref={root} className={`intro intro-${phase}`}>
-   <div className="forest-camera">
-    <div className="forest forest-far"/>
-    <div className="forest forest-mid"/>
-    <div className="forest forest-near"/>
-    <div className="mist mist-a"/><div className="mist mist-b"/>
-    <svg className="intro-human" viewBox="0 0 90 150" aria-hidden="true">
-      <ellipse cx="45" cy="25" rx="16" ry="20" fill="currentColor"/>
-      <path d="M28 47 Q45 37 62 47 L70 104 Q46 119 20 104Z" fill="currentColor"/>
-      <path d="M28 102 18 145M61 103 72 145M26 57 8 92M62 58 81 89" fill="none" stroke="currentColor" strokeWidth="12" strokeLinecap="round"/>
-    </svg>
-    <svg className="intro-raven" viewBox="0 0 300 120" aria-hidden="true">
-      <path d="M146 61c-24-17-48-37-77-48 15 19 27 34 33 48-35-17-63-20-92-17 37 15 65 32 91 50 17 12 38 17 56 8 16-8 26-20 36-31 21-24 51-39 97-48-40-6-74 2-105 22 7-15 18-30 32-45-29 11-51 29-71 61Z" fill="currentColor"/>
-      <path d="M146 62c19-12 34-9 46 2-13 7-27 13-43 18-13-4-18-11-3-20Z" fill="currentColor"/>
-      <circle cx="181" cy="61" r="2.8" fill="#fff"/>
-    </svg>
-    <div className="torch"><i/><b/></div>
-    <div className="catch-light"/>
-   </div>
-   <div className="intro-copy"><small>REKKA / SOFTWARE STUDIO</small><h1>Every idea starts<br/>in the dark.</h1><p>We help you find the way forward.</p></div>
-   <button className="skip" onClick={onDone}>Skip intro</button>
- </div>
-}
+export default function Loader({onDone}){const root=useRef(null),[phase,setPhase]=useState('flight');useEffect(()=>{const q=[[1900,'drop'],[3400,'catch'],[4700,'walk'],[6100,'message']].map(([ms,p])=>setTimeout(()=>setPhase(p),ms));q.push(setTimeout(()=>{root.current?.classList.add('intro-out');setTimeout(onDone,850)},8000));return()=>q.forEach(clearTimeout)},[onDone]);return <div ref={root} className={`intro intro-${phase}`}>
+ <div className="forest-camera"><div className="sky-haze"/><div className="forest forest-far"/><div className="forest forest-mid"/><div className="forest forest-near"/><div className="forest-path"/><div className="mist mist-a"/><div className="mist mist-b"/>
+ <svg className="intro-human" viewBox="0 0 100 170" aria-hidden="true"><circle cx="50" cy="25" r="17"/><path d="M34 47Q50 39 66 47l8 67-20 12-27-11z"/><path d="M34 60 13 101M66 61l23 37M38 116l-12 48M63 116l15 48" fill="none" stroke="currentColor" strokeWidth="12" strokeLinecap="round"/></svg>
+ <svg className="intro-raven" viewBox="0 0 360 150" aria-hidden="true"><g className="raven-body"><path d="M159 78c22-22 47-29 73-19l38-18-20 27 38 5-43 13c-15 23-38 35-67 33-25-2-44-15-57-35z"/><path d="m238 62 52-28-26 34z"/><circle cx="244" cy="64" r="3" fill="#d8c6a0"/></g><path className="wing wing-a" d="M164 82C111 52 62 25 10 25c35 25 59 48 75 70-30-8-56-8-78-3 45 22 84 33 121 33 20 0 37-10 50-30z"/><path className="wing wing-b" d="M176 83C145 48 124 18 111 1c38 17 70 40 96 70z"/></svg>
+ <div className="torch"><i/><b/></div><div className="catch-light"/><div className="light-ring"/></div>
+ <div className="intro-copy"><small>REKKA / SOFTWARE STUDIO</small><h1>Every idea starts<br/>in the dark.</h1><p>We help you find the way forward.</p></div><button className="skip" onClick={onDone}>Skip intro</button></div>}

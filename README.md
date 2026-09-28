@@ -1,11 +1,3 @@
-# REKKA Software
+# REKKA Software v11
 
-React/Vite studio website with multi-page navigation, dark/light themes and a lightweight 2D cinematic forest intro.
-
-## Development
-npm install
-npm run dev
-
-## Production
-npm run build
-npm start
+Reference-aligned multi-page React/Vite build with cinematic raven intro, interactive sand/light effects, pricing, responsive docs-style services, and redesigned project brief.
