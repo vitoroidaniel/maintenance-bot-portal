@@ -1,1 +1,22 @@
-{"name":"rekka-software","version":"9.0.0","private":true,"type":"commonjs","main":"server.js","scripts":{"dev":"vite --host 0.0.0.0","build":"vite build","start":"node server.js","prestart":"vite build"},"dependencies":{"@vitejs/plugin-react":"^4.4.1","express":"^4.21.2","resend":"^4.1.2","vite":"^6.2.2","react":"^18.3.1","react-dom":"^18.3.1"},"devDependencies":{}}
+{
+  "name": "rekka-software",
+  "version": "10.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "start": "node server.js",
+    "prestart": "vite build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "express": "^4.21.2",
+    "resend": "^4.1.2",
+    "vite": "^6.2.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {}
+}
