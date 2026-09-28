@@ -1,57 +1,32 @@
-import React,{useEffect,useState}from'react';
-import gsap from'gsap';
-import{ScrollTrigger}from'gsap/ScrollTrigger';
+import React,{useEffect,useMemo,useState}from'react';
 import Loader from'./components/Loader';
+import ParticleRaven from'./components/ParticleRaven';
 import'./styles/site.css';
-gsap.registerPlugin(ScrollTrigger);
 
-const products=[
- ['01','DISPATCH / INTELLIGENCE','KURTEX','Fleet operations without the noise. Case ownership, alerts, reports, knowledge and AI assistance in one hard-working system.'],
- ['02','AUTOMATION / TELEGRAM','OPS BOT','Operational events become assignments, escalations and useful alerts instead of another dashboard nobody checks.'],
- ['03','WEB / PRODUCT','CUSTOM SYSTEMS','Purpose-built websites, internal tools and interfaces designed around the actual workflow — not a template.'],
- ['04','MONITORING / API','REKKA MONITOR','Watch the things that matter, surface changes fast, and keep teams moving with less manual checking.']
+const projects=[
+ ['Kurtex','OPERATIONS','Fleet intelligence, case management and AI knowledge for maintenance teams.'],
+ ['Ops Bot','AUTOMATION','Telegram-first assignments, alerts, escalations and reporting.'],
+ ['LearnInn','PLATFORM','Multilingual learning experience with scheduling and customer tools.'],
+ ['Custom Systems','SOFTWARE','Focused internal tools and products built around real workflows.'],
+ ['Web Experiences','WEB','Fast, responsive launches and product websites with purposeful interaction.'],
+ ['Integrations','SYSTEMS','APIs and connected workflows that make existing tools work together.']
 ];
-const services=[['01','PRODUCT STRATEGY','Turn a rough problem into a clear product direction and technical plan.'],['02','WEB EXPERIENCES','Editorial websites, product pages and interactive launches with strong art direction.'],['03','AUTOMATION','Bots, integrations and workflows that remove repetitive operational work.'],['04','INTERNAL SYSTEMS','Dashboards, CRMs, knowledge tools and focused software for real teams.']];
-
+const services=[['Web experiences','Product sites, interactive launches and responsive interfaces.'],['Custom software','Dashboards, portals and internal tools built around the work.'],['Automation','Bots, integrations and workflows that remove repetitive steps.'],['Product support','Improve, extend and maintain software already in production.']];
+const faqs=[['What does REKKA build?','Web products, custom software, automation, bots and internal systems. The scope is shaped around the actual workflow rather than a fixed package.'],['Can you improve an existing project?','Yes. Existing codebases can be audited, redesigned, optimized or extended without automatically rebuilding everything.'],['Do you handle design and development?','Yes. Product structure, UI/UX, frontend, backend and deployment can stay in one workflow when the project needs it.'],['Can you build internal tools?','Yes. Dashboards, operations tools, CRM-style systems, reporting interfaces and workflow automation are a core part of the work.'],['How do we start?','Send the rough problem, current workflow and what you want to improve. A polished specification is not required.']];
+function ThemeToggle({theme,setTheme}){return <button className="icon-button" onClick={()=>setTheme(theme==='dark'?'light':'dark')} aria-label="Toggle theme">{theme==='dark'?'☼':'◐'}</button>}
 export default function App(){
- const [loading,setLoading]=useState(true);
- useEffect(()=>{
-  const ctx=gsap.context(()=>{
-   gsap.utils.toArray('[data-reveal]').forEach(el=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 86%'},y:55,opacity:0,duration:1,ease:'power3.out'}));
-   gsap.to('.hero-raven',{scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1},yPercent:14,scale:1.08});
-   gsap.to('.hero-title .line-a',{scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1},xPercent:-7});
-   gsap.to('.hero-title .line-b',{scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1},xPercent:7});
-   gsap.utils.toArray('.archive-card').forEach((el,i)=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 90%'},y:70+(i%2)*35,opacity:0,duration:1.1,ease:'power3.out'}));
-  });
-  return()=>ctx.revert();
- },[]);
- async function submit(e){e.preventDefault();const f=e.currentTarget,m=f.querySelector('.form-msg'),body=Object.fromEntries(new FormData(f));m.textContent='TRANSMITTING /';try{const r=await fetch('/api/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});if(!r.ok)throw Error();m.textContent='RECEIVED / I’LL GET BACK TO YOU.';f.reset()}catch{m.textContent='TRANSMISSION FAILED / TRY AGAIN.'}}
- return <>{loading&&<Loader onDone={()=>setLoading(false)}/>}<div className="grain"/><header className="site-head"><a className="brand" href="#top"><b>REKKA.</b><small>SOFTWARE / STUDIO</small></a><nav><a href="#about">ABOUT</a><a href="#work">PRODUCTS</a><a href="#services">SERVICES</a><a href="#contact">CONTACT</a></nav><a className="head-cta" href="#contact">START A PROJECT ↗</a></header><main id="top">
- <section className="hero red-field">
-  <div className="hero-raven" aria-hidden="true"/>
-  <div className="cross c1">+</div><div className="cross c2">+</div>
-  <div className="hero-meta left"><b>04+</b> products<br/><b>100%</b> independent<br/>Moldova → worldwide</div>
-  <div className="hero-meta right">digital products<br/>automation<br/>interfaces / systems</div>
-  <div className="hero-title"><span className="line-a">REKKA.</span><span className="line-b">SOFTWARE</span></div>
-  <a className="outline-cta" href="#contact">GET IN TOUCH →</a>
-  <a className="view-work" href="#work">VIEW PRODUCTS ↓</a>
-  <div className="ticker"><span>BUILT TO WORK ↓ BUILT TO BE SEEN ↓ BUILT TO LAST ↓ REKKA SOFTWARE ↓ </span><span>BUILT TO WORK ↓ BUILT TO BE SEEN ↓ BUILT TO LAST ↓ REKKA SOFTWARE ↓ </span></div>
- </section>
-
- <section id="about" className="black editorial">
-  <div className="eyebrow">// THE STUDIO</div><h2 data-reveal>BUILT TO<br/>BE <em>USED.</em><br/>BUILT TO<br/>BE <i>SEEN.</i></h2>
-  <div className="editorial-copy" data-reveal><b>NO TRENDS. NO COPIES.</b><p>REKKA builds software with a point of view — direct interfaces, useful automation and products that solve real operational problems.</p><p>The visual layer gets attention. The system underneath earns trust.</p><a href="#contact">START YOUR PROJECT →</a></div>
-  <div className="portrait raven-close"/><div className="metric m1"><strong>04+</strong><span>ACTIVE PRODUCT DIRECTIONS</span></div><div className="metric m2"><strong>24/7</strong><span>SYSTEMS THAT DON'T CLOCK OUT</span></div>
- </section>
-
- <section id="work" className="arsenal black"><div className="section-top"><span>PRODUCT / ARCHIVE</span><p>Not just one thing. A small arsenal of focused digital systems.</p></div><h2 data-reveal>THE<br/><i>ARSENAL</i></h2>{products.map((p,i)=><article className="archive-card" key={p[0]}><div className="num">{p[0]}</div><div className="archive-main"><small>{p[1]}</small><h3>{p[2]}</h3><p>{p[3]}</p></div><a href="#contact">OPEN BRIEF ↗</a><div className={'archive-art art-'+(i+1)}/></article>)}</section>
-
- <section className="amonra burgundy"><div className="micro top-left">MMXXVI<br/>independent software studio</div><div className="micro top-right">full context,<br/><b>always</b></div><div className="amonra-mark">REK<br/><span>KA</span></div><div className="sigil">R/</div><div className="amonra-copy" data-reveal><small>// WE ARE REKKA</small><p>we study <i>systems</i>, operational traces and digital behavior — then turn complexity into <b>clear software</b>.</p></div><div className="micro bottom-left">Ideas become interfaces.<br/>Interfaces become tools.<br/>Tools should earn their place.</div></section>
-
- <section id="services" className="services black"><div className="section-top"><span>SERVICES / DESKTOP + MOBILE</span><p>Need one of these, or the whole system?</p></div><h2 data-reveal>NOT JUST<br/><em>ONE</em> THING</h2><div className="service-grid">{services.map(s=><article data-reveal key={s[0]}><strong>{s[0]}</strong><div><h3>{s[1]}</h3><p>{s[2]}</p></div></article>)}</div><div className="service-image raven-flight"/></section>
-
- <section className="red-panel"><div className="panel-label">REKKA / METHOD</div><h2 data-reveal>THE GRID<br/><span>SYSTEM</span></h2><div className="grid-lines">{[1,2,3,4,5,6].map(n=><i key={n}/>)}</div><div className="ghost-raven"/><p>Flexible structure. Aggressive hierarchy. Clear navigation. Every element gets space for a reason, then breaks the grid only when breaking it makes the message stronger.</p></section>
-
- <section id="contact" className="contact black"><div className="contact-raven"/><div className="contact-copy"><small>THANKS FOR YOUR TIME</small><h2>MAKE<br/>SOMETHING<br/><i>WORTH SEEING.</i></h2><p>Tell me what needs to exist. I'll tell you how I'd approach it.</p></div><form onSubmit={submit}><label>NAME<input name="name" required/></label><label>EMAIL<input type="email" name="email" required/></label><label>PROJECT<select name="type"><option>Website / product</option><option>Automation / bot</option><option>Internal system</option><option>Existing project / fix</option></select></label><label>BRIEF<textarea name="message" required/></label><button>SEND PROJECT →</button><div className="form-msg"/></form></section>
- </main><footer><b>REKKA / SOFTWARE</b><span>MMXXVI / MOLDOVA → WORLDWIDE</span><a href="#top">BACK TO TOP ↑</a></footer></>
+ const[intro,setIntro]=useState(true),[theme,setTheme]=useState(()=>localStorage.getItem('rekka-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')),[query,setQuery]=useState(''),[filter,setFilter]=useState('ALL'),[searchOpen,setSearchOpen]=useState(false);
+ useEffect(()=>{document.documentElement.dataset.theme=theme;localStorage.setItem('rekka-theme',theme)},[theme]);
+ const filtered=useMemo(()=>projects.filter(p=>(filter==='ALL'||p[1]===filter)&&(`${p[0]} ${p[1]} ${p[2]}`.toLowerCase().includes(query.toLowerCase()))),[query,filter]);
+ async function submit(e){e.preventDefault();const f=e.currentTarget,m=f.querySelector('.form-status');m.textContent='Sending…';try{const r=await fetch('/api/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(f)))});if(!r.ok)throw Error();m.textContent='Received. I’ll get back to you.';f.reset()}catch{m.textContent='Could not send. Please try again.'}}
+ return <>{intro&&<Loader onDone={()=>setIntro(false)}/>}<header className="topnav"><nav className="nav-left"><a href="#top">Home</a><a href="#projects">Projects</a><a href="#services">Services</a><a href="#products">Products</a><a href="#about">About</a><a href="#faq">FAQ</a></nav><a href="#top" className="wordmark">REKKA</a><div className="nav-right"><button className="search-trigger" onClick={()=>setSearchOpen(v=>!v)}>⌕ <span>Search</span><kbd>⌘K</kbd></button><ThemeToggle theme={theme} setTheme={setTheme}/><a className="start-link" href="#contact">Start a project</a></div></header>{searchOpen&&<div className="global-search"><input autoFocus value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search projects and services…"/><button onClick={()=>setSearchOpen(false)}>Close</button></div>}
+ <main id="top">
+  <section className="xm-hero"><div className="hero-copy"><span className="eyebrow">INDEPENDENT SOFTWARE STUDIO</span><h1>Build useful things.<br/><span>Make complexity disappear.</span></h1><p>REKKA designs software, web experiences and automation around real workflows.</p><div><a href="#projects" className="outline-button">Explore projects</a><a href="#contact" className="plain-link">Start a project ↗</a></div></div><div className="raven-stage"><div className="light-beam"/><ParticleRaven/><span className="raven-caption">MOVE YOUR CURSOR THROUGH THE RAVEN</span></div></section>
+  <section className="section" id="projects"><div className="center-title"><span>PROJECT ARCHIVE</span><h2>Selected projects</h2><p>Software, automation and web systems designed around specific problems.</p><div className="archive-search">⌕<input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search projects"/></div></div><div className="filter-row"><span>Filter by category</span>{['ALL','OPERATIONS','AUTOMATION','PLATFORM','SOFTWARE','WEB','SYSTEMS'].map(x=><button className={filter===x?'active':''} onClick={()=>setFilter(x)} key={x}>{x}</button>)}</div><div className="project-grid">{filtered.map((p,i)=><article key={p[0]}><div className={'project-art art-'+i}><div className="beam"/><b>{p[0].slice(0,2)}</b></div><div className="project-body"><span className="tag-outline">{p[1]}</span><h3>{p[0]}</h3><p>{p[2]}</p><a href="#contact">Discuss project ↗</a></div></article>)}</div></section>
+  <section className="section docs-layout" id="services"><aside><strong>Services</strong>{services.map((s,i)=><a href={'#service-'+i} key={s[0]}>{String(i+1).padStart(2,'0')} {s[0]}</a>)}</aside><div className="docs-main"><span className="eyebrow">WHAT WE DO</span><h2>Services</h2><p className="lead">From the first structure to production, REKKA keeps design and engineering connected.</p>{services.map((s,i)=><article id={'service-'+i} key={s[0]}><h3>{s[0]}</h3><p>{s[1]}</p><div className="info-line"><b>+</b><span>Scope is adapted to the project instead of forcing the work into a predefined package.</span></div></article>)}</div><aside className="on-page"><strong>On this page</strong>{services.map(s=><span key={s[0]}>{s[0]}</span>)}</aside></section>
+  <section className="section products" id="products"><div className="center-title"><span>REKKA / PRODUCTS</span><h2>Products & systems</h2><p>Reusable ideas where they make sense. Custom engineering where they don’t.</p></div><div className="product-grid">{projects.slice(0,3).map((p,i)=><article key={p[0]}><div className="product-symbol">{['◒','⌁','◇'][i]}</div><h3>{p[0]}</h3><p>{p[2]}</p><code>{['operations / intelligence','telegram / workflow','learning / scheduling'][i]}</code><span className="tag-outline">{p[1]}</span></article>)}</div></section>
+  <section className="section about" id="about"><div><span className="eyebrow">ABOUT</span><h2>Small studio.<br/>Focused work.</h2></div><div><p>REKKA builds practical digital products for businesses and teams that need their software to make work easier.</p><p>Less ceremony, fewer layers and direct attention on the problem, interface and implementation.</p><div className="about-metrics"><span><b>01</b>Understand</span><span><b>02</b>Shape</span><span><b>03</b>Build</span><span><b>04</b>Ship</span></div></div></section>
+  <section className="section faq" id="faq"><div className="center-title"><h2>Frequently asked questions</h2><p>Useful answers before we start building.</p></div><div className="faq-list">{faqs.map((f,i)=><details key={f[0]} open={i===1}><summary>{f[0]}<span>⌄</span></summary><p>{f[1]}</p></details>)}</div></section>
+  <section className="section contact" id="contact"><div><span className="eyebrow">START A PROJECT</span><h2>Have something useful in mind?</h2><p>Send the rough version. It doesn’t need to be a polished brief.</p><a href="mailto:vitoroid2@gmail.com">vitoroid2@gmail.com ↗</a></div><form onSubmit={submit}><input name="name" required placeholder="Name"/><input name="email" type="email" required placeholder="Email"/><textarea name="message" required placeholder="What are we building?"/><button>Send project ↗</button><span className="form-status"/></form></section>
+ </main><footer><b>REKKA</b><span>Software / automation / web experiences</span><a href="#top">Back to top ↑</a><small>© 2026 REKKA SOFTWARE</small></footer></>
 }
