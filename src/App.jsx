@@ -1,4 +1,4 @@
-import React,{useEffect}from'react';
+import React,{useEffect,useState}from'react';
 import gsap from'gsap';
 import{ScrollTrigger}from'gsap/ScrollTrigger';
 import Loader from'./components/Loader';
@@ -14,6 +14,7 @@ const products=[
 const services=[['01','PRODUCT STRATEGY','Turn a rough problem into a clear product direction and technical plan.'],['02','WEB EXPERIENCES','Editorial websites, product pages and interactive launches with strong art direction.'],['03','AUTOMATION','Bots, integrations and workflows that remove repetitive operational work.'],['04','INTERNAL SYSTEMS','Dashboards, CRMs, knowledge tools and focused software for real teams.']];
 
 export default function App(){
+ const [loading,setLoading]=useState(true);
  useEffect(()=>{
   const ctx=gsap.context(()=>{
    gsap.utils.toArray('[data-reveal]').forEach(el=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 86%'},y:55,opacity:0,duration:1,ease:'power3.out'}));
@@ -25,7 +26,7 @@ export default function App(){
   return()=>ctx.revert();
  },[]);
  async function submit(e){e.preventDefault();const f=e.currentTarget,m=f.querySelector('.form-msg'),body=Object.fromEntries(new FormData(f));m.textContent='TRANSMITTING /';try{const r=await fetch('/api/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});if(!r.ok)throw Error();m.textContent='RECEIVED / I’LL GET BACK TO YOU.';f.reset()}catch{m.textContent='TRANSMISSION FAILED / TRY AGAIN.'}}
- return <><Loader/><div className="grain"/><header className="site-head"><a className="brand" href="#top"><b>REKKA.</b><small>SOFTWARE / STUDIO</small></a><nav><a href="#about">ABOUT</a><a href="#work">PRODUCTS</a><a href="#services">SERVICES</a><a href="#contact">CONTACT</a></nav><a className="head-cta" href="#contact">START A PROJECT ↗</a></header><main id="top">
+ return <>{loading&&<Loader onDone={()=>setLoading(false)}/>}<div className="grain"/><header className="site-head"><a className="brand" href="#top"><b>REKKA.</b><small>SOFTWARE / STUDIO</small></a><nav><a href="#about">ABOUT</a><a href="#work">PRODUCTS</a><a href="#services">SERVICES</a><a href="#contact">CONTACT</a></nav><a className="head-cta" href="#contact">START A PROJECT ↗</a></header><main id="top">
  <section className="hero red-field">
   <div className="hero-raven" aria-hidden="true"/>
   <div className="cross c1">+</div><div className="cross c2">+</div>

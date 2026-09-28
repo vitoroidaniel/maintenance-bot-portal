@@ -1,2 +1,4 @@
-import React from'react';import{Canvas}from'@react-three/fiber';import{Environment,Float}from'@react-three/drei';import Raven from'./Raven';
-export default function Scene(){return <Canvas dpr={[1,1.7]} camera={{position:[0,0,6],fov:42}} gl={{alpha:true,antialias:true}}><fog attach="fog" args={['#050505',5,13]}/><ambientLight intensity={.32}/><directionalLight position={[4,6,5]} intensity={2.2}/><pointLight position={[-3,1,3]} intensity={8} color="#d7ff28" distance={6}/><Float speed={1.4} rotationIntensity={.08} floatIntensity={.15}><Raven/></Float><Environment preset="city" environmentIntensity={.2}/></Canvas>}
+import { Canvas } from '@react-three/fiber';
+import { Environment, Fog } from '@react-three/drei';
+import Raven from './Raven';
+export default function Scene({progress}){return <Canvas camera={{position:[0,1,7],fov:48}} dpr={[1,1.5]} gl={{antialias:true,alpha:true}}><fog attach="fog" args={['#050606',5,18]}/><ambientLight intensity={.28}/><directionalLight position={[-4,6,4]} intensity={1.5} color="#e7dfcf"/><directionalLight position={[5,2,-2]} intensity={2.2} color="#8e1518"/><Raven progress={progress}/></Canvas>}
