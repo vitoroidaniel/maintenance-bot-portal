@@ -78,6 +78,7 @@ initContact();
 // Animation code is optional: the page and its form remain usable if it fails.
 import("./animations")
   .then(({ initAnimations }) => initAnimations())
-  .catch(() => {
+  .catch((error: unknown) => {
+    console.warn("Portfolio animation setup failed.", error);
     document.querySelector(".loader")?.remove();
   });

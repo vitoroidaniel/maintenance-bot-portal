@@ -221,7 +221,17 @@ export function initAnimations() {
   const draw = messageDoodle();
   opening(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const media = gsap.matchMedia();
-  media.add("(prefers-reduced-motion: no-preference)", () => {
+  media.add({
+    all: "all",
+    motion: "(prefers-reduced-motion: no-preference)",
+    desktop: "(min-width: 1000px) and (min-height: 640px)",
+    hover: "(hover: hover)",
+  }, (context) => {
+    const { motion, desktop, hover } = context.conditions!;
+    if (!motion) { draw?.(1); return; }
+    const cleanups: (() => void)[] = [];
+    // Pin spacing must exist before measuring the reveals further down the page.
+    if (desktop) cleanups.push(serviceStory(), horizontalStory());
     revealSections();
     const ink = { progress: 0 };
     if (draw) gsap.to(ink, {
@@ -246,23 +256,11 @@ export function initAnimations() {
         scrub: true,
       },
     });
+    if (hover) cleanups.push(pointerDetails());
+    ScrollTrigger.sort();
+    ScrollTrigger.refresh();
+    return () => cleanups.forEach(cleanup => cleanup());
   });
-  media.add("(prefers-reduced-motion: reduce)", () => { draw?.(1); });
-  media.add(
-    "(min-width: 1000px) and (min-height: 760px) and (prefers-reduced-motion: no-preference)",
-    () => {
-      const cleanServices = serviceStory();
-      const cleanWork = horizontalStory();
-      return () => {
-        cleanServices();
-        cleanWork();
-      };
-    },
-  );
-  media.add(
-    "(hover: hover) and (prefers-reduced-motion: no-preference)",
-    pointerDetails,
-  );
   document.fonts.ready.then(() => ScrollTrigger.refresh());
   window.addEventListener("load", () => ScrollTrigger.refresh(), {
     once: true,
