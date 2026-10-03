@@ -3,279 +3,614 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101013" />
     <meta
       name="description"
-      content="Daniel builds Telegram bots, websites, mobile apps, presentations, and automated digital products from Moldova."
+      content="Daniel, a digital product builder from Moldova. Telegram bots, websites, mobile apps and presentations."
     />
-    <title>Daniel - Bots, Websites & Digital Products</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="/mascote/mascot-cutout.png" />
+    <title>Daniel — Digital Products & Creative Development</title>
   </head>
   <body>
-    <div class="cursor-glow" aria-hidden="true"></div>
-    <div class="noise" aria-hidden="true"></div>
-
-    <header class="site-header" data-reveal>
-      <a class="brand" href="#home" aria-label="Daniel home">
-        <span class="brand-orb">
-          <img src="mascote/mascotev1.jpg" alt="" />
-        </span>
-        <span>Daniel</span>
-      </a>
-
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#work">Work</a>
-        <a href="#prices">Prices</a>
-        <a href="#faq">FAQ</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="loader" aria-hidden="true">
+      <img src="/mascote/mascot-cutout.png" alt="" /><span
+        >DANIEL <b class="loader-count">00</b></span
+      >
+      <div class="loader-track"><div></div></div>
+    </div>
+    <header>
+      <a class="brand" href="#home" aria-label="Daniel home"
+        ><img src="/mascote/mascot-cutout.png" alt="" />daniel<span>®</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a><a href="#services">What I do</a
+        ><a href="#about">About</a><a href="#pricing">Prices</a>
       </nav>
-
-      <a class="header-cta magnetic" href="#contact">Start a project</a>
+      <a class="button small" href="#contact"
+        >Let's talk <i data-lucide="arrow-up-right"></i></a
+      ><button
+        class="menu-toggle icon-button"
+        aria-label="Open menu"
+        aria-controls="mobile-menu"
+      >
+        <i data-lucide="menu"></i>
+      </button>
     </header>
-
-    <main id="home">
-      <section class="hero section-shell">
-        <div class="hero-copy" data-reveal>
-          <p class="eyebrow">Moldova-based digital product builder</p>
-          <h1>Telegram bots, websites, apps, and pitch decks that feel alive.</h1>
-          <p class="hero-text">
-            I am Daniel, 21, building sharp digital products for founders,
-            creators, and businesses that want something faster, cleaner, and
-            more memorable than a generic template.
-          </p>
-          <div class="hero-actions">
-            <a class="primary-button magnetic" href="#contact">Build with me</a>
-            <a class="secondary-button" href="#products">Explore services</a>
-          </div>
-          <div class="hero-stats" aria-label="Service highlights">
-            <span><strong>4+</strong> product types</span>
-            <span><strong>Fast</strong> launch cycles</span>
-            <span><strong>Motion</strong> first UX</span>
-          </div>
+    <dialog id="mobile-menu">
+      <button class="icon-button close-menu" aria-label="Close menu">
+        <i data-lucide="x"></i>
+      </button>
+      <nav aria-label="Mobile navigation">
+        <a href="#work">Work</a><a href="#services">What I do</a
+        ><a href="#about">About</a><a href="#pricing">Prices</a
+        ><a href="#contact">Let's talk</a>
+      </nav>
+    </dialog>
+    <main id="main">
+      <section class="hero" id="home">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-meta">
+          <span>INDEPENDENT DESIGNER & DEVELOPER</span
+          ><span>MOLDOVA · WORKING EVERYWHERE</span>
         </div>
-
-        <div class="hero-stage" data-reveal>
-          <div class="stage-rings" aria-hidden="true"></div>
-          <div class="mascot-card" data-tilt>
-            <img src="mascote/mascotev2.jpg" alt="Daniel's glowing black mascot" />
-          </div>
-          <div class="floating-panel panel-a">
-            <span>Telegram Bot</span>
-            <strong>Orders, CRM, payments</strong>
-          </div>
-          <div class="floating-panel panel-b">
-            <span>Landing Page</span>
-            <strong>Premium scroll story</strong>
-          </div>
-          <div class="floating-panel panel-c">
-            <span>Pitch Deck</span>
-            <strong>Investor-ready slides</strong>
-          </div>
+        <h1>
+          Daniel.<br /><span>Ideas into</span><br />digital things<span
+            class="period"
+            >.</span
+          >
+        </h1>
+        <div class="hero-mascot">
+          <img
+            src="/mascote/mascot-cutout.png"
+            alt="Daniel's black mascot with white eyes and a violet aura"
+          /><span class="orbit-label"
+            >A LITTLE CHARACTER. A LOT OF POSSIBILITIES.</span
+          >
         </div>
-      </section>
-
-      <section class="marquee" aria-label="Capabilities">
-        <div class="marquee-track">
-          <span>Telegram bots</span>
-          <span>Conversion websites</span>
-          <span>Mobile apps</span>
-          <span>Presentations</span>
-          <span>Automations</span>
-          <span>Brand motion</span>
-          <span>Telegram bots</span>
-          <span>Conversion websites</span>
-          <span>Mobile apps</span>
-          <span>Presentations</span>
-        </div>
-      </section>
-
-      <section id="about" class="section-shell split-section">
-        <div data-reveal>
-          <p class="eyebrow">About me</p>
-          <h2>I build like a developer and think like the user who has to click it.</h2>
-        </div>
-        <div class="about-copy" data-reveal>
+        <div class="hero-bottom">
           <p>
-            I help people turn loose ideas into working products: bots that
-            automate work, websites that sell, mobile apps that feel simple, and
-            presentations that make the offer clear.
+            Telegram bots, memorable websites,<br />mobile experiences &
+            presentations.<br />Designed to feel good. Built to work.
           </p>
-          <p>
-            The style here is cinematic, but the goal is practical. Motion
-            guides attention, hover states confirm intent, and every section
-            moves visitors closer to trust and contact.
-          </p>
+          <a class="button" href="#contact"
+            >Let's build something <i data-lucide="arrow-up-right"></i></a
+          ><a class="scroll-cue" href="#services"
+            ><i data-lucide="arrow-down"></i><span>SCROLL TO EXPLORE</span></a
+          >
         </div>
+        <span class="hero-index">01 / HELLO, WORLD</span>
+        <div class="doodle doodle-star" aria-hidden="true">✳</div>
       </section>
-
-      <section id="products" class="section-shell">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Products</p>
-          <h2>Choose the thing you need shipped.</h2>
+      <div class="ticker" aria-hidden="true">
+        <div>
+          GOOD IDEAS DESERVE GOOD EXECUTION <span>✳</span> DESIGN WITH
+          PERSONALITY <span>✳</span> GOOD IDEAS DESERVE GOOD EXECUTION
+          <span>✳</span> DESIGN WITH PERSONALITY <span>✳</span>
         </div>
-        <div class="product-grid">
-          <article class="product-card" data-reveal>
-            <span class="card-index">01</span>
-            <h3>Telegram Bots</h3>
-            <p>Support bots, booking flows, lead capture, payments, admin panels, and workflow automation.</p>
-          </article>
-          <article class="product-card" data-reveal>
-            <span class="card-index">02</span>
-            <h3>Websites</h3>
-            <p>Landing pages, portfolios, business websites, product pages, and full responsive experiences.</p>
-          </article>
-          <article class="product-card" data-reveal>
-            <span class="card-index">03</span>
-            <h3>Mobile Apps</h3>
-            <p>Lean app prototypes, MVP interfaces, booking tools, dashboards, and customer-facing flows.</p>
-          </article>
-          <article class="product-card" data-reveal>
-            <span class="card-index">04</span>
-            <h3>Presentations</h3>
-            <p>Sales decks, investor decks, service proposals, and visual storytelling for your next pitch.</p>
-          </article>
+      </div>
+      <section class="services section" id="services">
+        <div class="section-top">
+          <span>02 / WHAT I DO</span
+          ><span>ONE BUILDER. MANY POSSIBILITIES.</span>
         </div>
-      </section>
-
-      <section id="work" class="section-shell work-lab">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Live product examples</p>
-          <h2>A portfolio that can grow with real launches.</h2>
-        </div>
-        <div class="case-grid">
-          <article class="case-card large" data-reveal>
-            <div class="case-visual bot-visual"></div>
-            <span>Automation</span>
-            <h3>Telegram order assistant</h3>
-            <p>Product catalog, client questions, order routing, and admin notifications in one clean flow.</p>
-          </article>
-          <article class="case-card" data-reveal>
-            <div class="case-visual web-visual"></div>
-            <span>Website</span>
-            <h3>Premium launch page</h3>
-            <p>Scroll reveals, strong copy, pricing, FAQ, and conversion-focused contact.</p>
-          </article>
-          <article class="case-card" data-reveal>
-            <div class="case-visual deck-visual"></div>
-            <span>Deck</span>
-            <h3>Pitch presentation</h3>
-            <p>Clear structure, modern slides, product visuals, and a confident investor narrative.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-shell process-section" id="process">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">How we work</p>
-          <h2>Simple process, visible progress.</h2>
-        </div>
-        <div class="timeline">
-          <div class="timeline-item" data-reveal>
-            <span>01</span>
-            <h3>Map the offer</h3>
-            <p>We define your goal, audience, features, references, and what should happen after a visitor contacts you.</p>
-          </div>
-          <div class="timeline-item" data-reveal>
-            <span>02</span>
-            <h3>Prototype fast</h3>
-            <p>You get a first direction quickly, with structure, UI, animation language, and real content shape.</p>
-          </div>
-          <div class="timeline-item" data-reveal>
-            <span>03</span>
-            <h3>Build and polish</h3>
-            <p>I refine the product, make it responsive, improve performance, and add the details that make it feel premium.</p>
-          </div>
-          <div class="timeline-item" data-reveal>
-            <span>04</span>
-            <h3>Launch</h3>
-            <p>We prepare final files, connect contact paths, and make the project ready to share with real people.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="prices" class="section-shell">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Prices</p>
-          <h2>Starter packages with room to customize.</h2>
-        </div>
-        <div class="pricing-grid">
-          <article class="price-card" data-reveal>
-            <h3>Bot Sprint</h3>
-            <p class="price">from EUR 150</p>
-            <p>For Telegram bots, automations, lead capture, and simple admin flows.</p>
-            <a href="#contact">Request bot</a>
-          </article>
-          <article class="price-card featured" data-reveal>
-            <div class="badge">Most popular</div>
-            <h3>Website Launch</h3>
-            <p class="price">from EUR 300</p>
-            <p>For a polished responsive website with sections, animations, pricing, FAQ, and contact.</p>
-            <a href="#contact">Request website</a>
-          </article>
-          <article class="price-card" data-reveal>
-            <h3>Product Pack</h3>
-            <p class="price">custom</p>
-            <p>For apps, complex products, pitch decks, bots plus website, or ongoing product work.</p>
-            <a href="#contact">Plan product</a>
-          </article>
-        </div>
-      </section>
-
-      <section id="faq" class="section-shell faq-section">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">FAQ</p>
-          <h2>Good questions before we start.</h2>
-        </div>
-        <div class="faq-list" data-reveal>
-          <details open>
-            <summary>How fast can a project launch?</summary>
-            <p>Small bots and landing pages can move quickly. Bigger products depend on features, content, and integrations.</p>
-          </details>
-          <details>
-            <summary>Can you design and develop the whole thing?</summary>
-            <p>Yes. I can handle structure, visual direction, interface, animations, responsive build, and launch preparation.</p>
-          </details>
-          <details>
-            <summary>Do you work with existing ideas or from zero?</summary>
-            <p>Both. If you have only a rough idea, I can help shape it into a clear product and build the first version.</p>
-          </details>
-          <details>
-            <summary>Can this portfolio show real product links later?</summary>
-            <p>Yes. The examples section is built so real live projects can replace the current sample cards.</p>
-          </details>
-        </div>
-      </section>
-
-      <section id="contact" class="section-shell contact-section">
-        <div class="contact-card" data-reveal>
-          <img src="mascote/mascotev1.jpg" alt="" />
-          <div>
-            <p class="eyebrow">Contact</p>
-            <h2>Send me the idea. I will help shape the product.</h2>
+        <div class="services-stage">
+          <div class="service-intro">
+            <h2>Small ideas.<br /><em>Big energy.</em></h2>
             <p>
-              Tell me what you want to build, who it is for, and what result you want. I will reply with the clearest next step.
+              From a task you wish would do itself to a website people remember.
+              Let's give your idea a life of its own.
             </p>
+            <div class="service-progress">
+              <span class="service-number">01</span>
+              <div><span></span></div>
+              <span>04</span>
+            </div>
           </div>
-          <div class="contact-actions">
-            <a class="primary-button magnetic" href="https://t.me/" target="_blank" rel="noreferrer">Telegram</a>
-            <a class="secondary-button" href="mailto:hello@daniel.dev">Email</a>
+          <div class="service-stack">
+            <article class="service-panel">
+              <span class="service-tag"
+                ><i data-lucide="bot"></i>01 / AUTOMATE</span
+              >
+              <h3>Less busywork.<br />More business.</h3>
+              <p>
+                Telegram bots that take orders, answer questions, handle
+                bookings and keep your day moving.
+              </p>
+              <div class="bot-demo">
+                <div class="demo-bar">
+                  <i data-lucide="bot"></i
+                  ><span>Your next assistant<small>online · always</small></span
+                  ><i data-lucide="ellipsis"></i>
+                </div>
+                <div class="chat incoming">Hey! What can I help you with?</div>
+                <div class="chat outgoing">I'd like to book a session.</div>
+                <div class="chat incoming">
+                  All set. Your time is reserved.<i
+                    data-lucide="check-check"
+                  ></i>
+                </div>
+              </div>
+              <a href="#contact" data-service="Telegram bot"
+                >Build my bot <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
+            <article class="service-panel">
+              <span class="service-tag"
+                ><i data-lucide="monitor"></i>02 / MAKE AN IMPRESSION</span
+              >
+              <h3>Not just online.<br />Unforgettable.</h3>
+              <p>
+                Websites with a point of view. Fast, responsive, beautifully
+                considered, and built around your next customer.
+              </p>
+              <div class="website-demo">
+                <div class="demo-bar">
+                  <span>● ● ●</span><span>your-next-website.com</span>
+                </div>
+                <img
+                  src="/images/code-editor.jpg"
+                  alt="Close-up of JavaScript source code in a laptop editor"
+                  loading="lazy"
+                /><strong>IDEAS INTO<br />REAL CODE.</strong>
+              </div>
+              <a href="#contact" data-service="Website"
+                >Build my website <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
+            <article class="service-panel">
+              <span class="service-tag"
+                ><i data-lucide="smartphone"></i>03 / GO MOBILE</span
+              >
+              <h3>Your idea.<br />In their pocket.</h3>
+              <p>
+                Focused mobile MVPs, booking experiences and interfaces that
+                make the next action feel natural.
+              </p>
+              <div class="phone-demo">
+                <span>09:41 <i data-lucide="wifi"></i></span>
+                <h4>Hello, Alex.</h4>
+                <p>Make room for what matters.</p>
+                <div class="phone-circle">75<small>%</small></div>
+                <div class="phone-row">
+                  <i data-lucide="calendar-days"></i
+                  ><span>Your next session<small>Tomorrow, 10:00</small></span>
+                </div>
+              </div>
+              <a href="#contact" data-service="Mobile app"
+                >Explore my app idea <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
+            <article class="service-panel">
+              <span class="service-tag"
+                ><i data-lucide="presentation"></i>04 / TELL THE STORY</span
+              >
+              <h3>Make your point.<br />Make it stick.</h3>
+              <p>
+                Pitch decks, proposals and presentations that turn the complex
+                into something clear, compelling and confident.
+              </p>
+              <div class="deck-demo">
+                <span>THE NEXT BIG IDEA / 001</span
+                ><strong>Think bigger.<br /><em>Start here.</em></strong>
+                <div class="chart">
+                  <span></span><span></span><span></span><span></span
+                  ><span></span>
+                </div>
+              </div>
+              <a href="#contact" data-service="Presentation"
+                >Shape my presentation <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="work section" id="work">
+        <div class="section-top">
+          <span>03 / THE POSSIBILITIES</span
+          ><span>SELECTED CONCEPTS · NOT CLIENT LAUNCHES</span>
+        </div>
+        <div class="work-heading">
+          <h2>A little preview<br />of <em>what's possible.</em></h2>
+          <i data-lucide="move-right"></i>
+        </div>
+        <div
+          class="work-viewport"
+          tabindex="0"
+          role="region"
+          aria-label="Project concepts"
+        >
+          <div class="work-track">
+            <article class="work-item">
+              <div class="work-visual work-bot tilt">
+                <div class="floating-note">
+                  <i data-lucide="send"></i><strong>Order received.</strong
+                  ><span>Everything in its right place.</span>
+                  <div class="order-lines">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <span class="note-total"
+                    >€ 124.00 <i data-lucide="check-circle-2"></i
+                  ></span>
+                </div>
+                <span class="visual-word">AUTO<br />PILOT.</span>
+              </div>
+              <div class="work-caption">
+                <h3>Order assistant</h3>
+                <span>TELEGRAM BOT / CONCEPT</span>
+              </div>
+            </article>
+            <article class="work-item">
+              <div class="work-visual work-web tilt">
+                <img
+                  src="/images/code-editor.jpg"
+                  alt="JavaScript code on a laptop screen for a development website concept"
+                  loading="lazy"
+                /><span class="visual-word"
+                  >BUILD.<small>FROM FIRST LINE TO LAUNCH</small></span
+                ><span class="work-stamp">DESIGN / DEVELOPMENT</span>
+              </div>
+              <div class="work-caption">
+                <h3>Launch experience</h3>
+                <span>CREATIVE WEBSITE / CONCEPT</span>
+              </div>
+            </article>
+            <article class="work-item">
+              <div class="work-visual work-deck tilt">
+                <span class="work-stamp">THE FUTURE DOESN'T WAIT</span
+                ><span class="visual-word"
+                  >NEXT<br />STARTS<br /><em>NOW.</em></span
+                >
+                <div class="deck-grid"></div>
+              </div>
+              <div class="work-caption">
+                <h3>The next big idea</h3>
+                <span>PRESENTATION / CONCEPT</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="about section" id="about">
+        <div class="section-top">
+          <span>04 / THE PERSON BEHIND IT</span
+          ><span>21 YEARS OLD · MOLDOVA</span>
+        </div>
+        <div class="about-grid">
+          <div class="about-media">
+            <img
+              src="/images/developer-workstation.jpg"
+              alt="Laptop displaying source code beside a phone on a developer's desk; illustrative photography, not Daniel's workspace"
+              loading="lazy"
+            /><span class="photo-caption">A LITTLE DEVELOPER WORKSPACE INSPIRATION</span>
+            <div class="about-sticker">
+              MADE WITH<br /><i data-lucide="heart"></i><br />INTENTION
+            </div>
+          </div>
+          <div class="about-copy">
+            <span class="eyebrow">HI, I'M DANIEL.</span>
+            <h2>
+              Curious mind.<br />Hands-on builder.<br /><em
+                >Your collaborator.</em
+              >
+            </h2>
+            <p>
+              I'm 21, based in Moldova, and I turn ideas into things people can
+              actually use. I bring design and development together, so the
+              details look right and work right.
+            </p>
+            <p>
+              You'll talk directly with the person building your project. No
+              handoffs. Just honest conversations, clear progress, and a shared
+              eye on the finish line.
+            </p>
+            <div class="about-facts">
+              <span
+                ><i data-lucide="map-pin"></i>Moldova, connected worldwide</span
+              ><span
+                ><i data-lucide="messages-square"></i>Direct, personal
+                collaboration</span
+              ><span
+                ><i data-lucide="sparkles"></i>Thoughtful design + working
+                code</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="process section" id="process">
+        <div class="section-top">
+          <span>05 / HOW WE WORK</span><span>NO MYSTERY. JUST MOMENTUM.</span>
+        </div>
+        <h2>From your first “what if”<br />to <em>out in the world.</em></h2>
+        <div class="process-line"><span></span></div>
+        <div class="process-grid">
+          <article>
+            <span class="step-number"
+              >01 <i data-lucide="messages-square"></i
+            ></span>
+            <h3>Let's talk.</h3>
+            <p>
+              Your idea, your audience, your goal. We agree on scope, timing and
+              a clear price.
+            </p>
+          </article>
+          <article>
+            <span class="step-number"
+              >02 <i data-lucide="pencil-ruler"></i
+            ></span>
+            <h3>Find the shape.</h3>
+            <p>
+              Direction, structure and design. You see where we're going before
+              the build begins.
+            </p>
+          </article>
+          <article>
+            <span class="step-number">03 <i data-lucide="code-2"></i></span>
+            <h3>Make it real.</h3>
+            <p>
+              Working versions, regular updates and room for feedback. The
+              details get their moment.
+            </p>
+          </article>
+          <article>
+            <span class="step-number">04 <i data-lucide="rocket"></i></span>
+            <h3>Hello, world.</h3>
+            <p>
+              Final checks, launch and a clear handover. Something you're proud
+              to put your name on.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="pricing section" id="pricing">
+        <div class="section-top">
+          <span>06 / A STARTING POINT</span
+          ><span>ILLUSTRATIVE PRICES · FINAL QUOTE AFTER SCOPE</span>
+        </div>
+        <h2>Great things.<br /><em>Clear starting points.</em></h2>
+        <div class="price-grid">
+          <article>
+            <i data-lucide="bot"></i>
+            <h3>Telegram bot</h3>
+            <p class="price"><small>FROM</small>€150</p>
+            <ul>
+              <li>One focused automation flow</li>
+              <li>Admin & user experience</li>
+              <li>Setup and handover</li>
+            </ul>
+            <a class="button" href="#contact" data-service="Telegram bot"
+              >Let's automate <i data-lucide="arrow-up-right"></i
+            ></a>
+          </article>
+          <article>
+            <i data-lucide="monitor"></i>
+            <h3>Website</h3>
+            <p class="price"><small>FROM</small>€300</p>
+            <ul>
+              <li>Responsive, custom design</li>
+              <li>Purposeful motion & interactions</li>
+              <li>Contact form and launch</li>
+            </ul>
+            <a class="button" href="#contact" data-service="Website"
+              >Let's build <i data-lucide="arrow-up-right"></i
+            ></a>
+          </article>
+          <article>
+            <i data-lucide="smartphone"></i>
+            <h3>Mobile MVP</h3>
+            <p class="price"><small>FROM</small>€950</p>
+            <ul>
+              <li>A focused first version</li>
+              <li>Thoughtful mobile interface</li>
+              <li>Testing and delivery</li>
+            </ul>
+            <a class="button" href="#contact" data-service="Mobile app"
+              >Let's explore <i data-lucide="arrow-up-right"></i
+            ></a>
+          </article>
+          <article>
+            <i data-lucide="presentation"></i>
+            <h3>Presentation</h3>
+            <p class="price"><small>FROM</small>€120</p>
+            <ul>
+              <li>Up to 10 crafted slides</li>
+              <li>Storytelling & visual direction</li>
+              <li>Editable final files</li>
+            </ul>
+            <a class="button" href="#contact" data-service="Presentation"
+              >Let's tell it <i data-lucide="arrow-up-right"></i
+            ></a>
+          </article>
+        </div>
+      </section>
+      <section class="faq section" id="faq">
+        <div>
+          <span class="eyebrow">07 / THE LITTLE QUESTIONS</span>
+          <h2>Good to<br /><em>know.</em></h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>How fast can we launch?<i data-lucide="plus"></i></summary>
+            <p>
+              It depends on the scope. We'll agree on a realistic timeline
+              before starting, with clear milestones along the way.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Can you handle design and development?<i data-lucide="plus"></i>
+            </summary>
+            <p>
+              Yes. I can take your project from early structure and visual
+              direction through development and launch.
+            </p>
+          </details>
+          <details>
+            <summary>
+              I only have a rough idea. Is that enough?<i
+                data-lucide="plus"
+              ></i>
+            </summary>
+            <p>
+              Absolutely. We can work together to find the most useful, focused
+              first version of your idea.
+            </p>
+          </details>
+          <details>
+            <summary>Can we work remotely?<i data-lucide="plus"></i></summary>
+            <p>
+              Yes. I'm based in Moldova and collaborate remotely, with direct
+              communication and regular progress updates.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section class="contact section" id="contact">
+        <div class="section-top">
+          <span>08 / YOUR TURN</span
+          ><span>LET'S MAKE SOMETHING THAT MATTERS.</span>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <h2>
+              Got a spark?<br /><em>Let's make<br />it happen.</em>
+            </h2>
+            <p>
+              A small idea, a big ambition, or just a question.<br />Tell me
+              what's on your mind.
+            </p>
+            <a class="email-link" hidden></a>
+            <canvas class="contact-doodle" width="260" height="200" aria-hidden="true"></canvas>
+          </div>
+          <div class="contact-form-wrap">
+            <form method="post" action="/api/contact">
+              <fieldset>
+                <legend>What are we building?</legend>
+                <div class="service-options">
+                  <label
+                    ><input
+                      type="radio"
+                      name="service"
+                      value="Telegram bot"
+                      required
+                    /><span>Telegram bot</span></label
+                  ><label
+                    ><input
+                      type="radio"
+                      name="service"
+                      value="Website"
+                      checked
+                    /><span>Website</span></label
+                  ><label
+                    ><input
+                      type="radio"
+                      name="service"
+                      value="Mobile app"
+                    /><span>Mobile app</span></label
+                  ><label
+                    ><input
+                      type="radio"
+                      name="service"
+                      value="Presentation"
+                    /><span>Presentation</span></label
+                  ><label
+                    ><input
+                      type="radio"
+                      name="service"
+                      value="Something else"
+                    /><span>Something else</span></label
+                  >
+                </div>
+              </fieldset>
+              <div class="form-row">
+                <label
+                  >Your name<input
+                    name="name"
+                    autocomplete="name"
+                    placeholder="Your name"
+                    minlength="2"
+                    maxlength="80"
+                    required /></label
+                ><label
+                  >Your email<input
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="you@company.com"
+                    maxlength="254"
+                    required
+                /></label>
+              </div>
+              <label
+                >Budget<select name="budget">
+                  <option>Under EUR 300</option>
+                  <option>EUR 300-750</option>
+                  <option>EUR 750-1,500</option>
+                  <option>EUR 1,500+</option>
+                  <option selected>Let's discuss</option>
+                </select></label
+              ><label
+                >A little about your idea<textarea
+                  name="message"
+                  placeholder="What would you love to build? Who is it for?"
+                  minlength="15"
+                  maxlength="4000"
+                  rows="4"
+                  required
+                ></textarea>
+              </label>
+              <div class="form-trap" aria-hidden="true">
+                <label
+                  >Website<input
+                    name="website"
+                    tabindex="-1"
+                    autocomplete="off"
+                /></label>
+              </div>
+              <p class="privacy">
+                Your details are used only to reply to your enquiry.
+              </p>
+              <p class="form-error" role="alert" hidden></p>
+              <button class="button submit" type="submit">
+                <span>Send my idea</span><i data-lucide="arrow-up-right"></i>
+              </button>
+            </form>
+            <div class="form-success" role="status" hidden>
+              <i data-lucide="check-circle-2"></i>
+              <h3>It's in my inbox.</h3>
+              <p>
+                Thanks for sharing your idea. I'll reply with the next step.
+              </p>
+              <button class="button reset-form" type="button">
+                Send another idea <i data-lucide="rotate-ccw"></i>
+              </button>
+            </div>
           </div>
         </div>
       </section>
     </main>
-
-    <footer class="site-footer">
-      <span>Daniel - Digital products from Moldova</span>
-      <a href="#home">Back to top</a>
+    <footer>
+      <div class="footer-top">
+        <a class="brand" href="#home"
+          ><img src="/mascote/mascot-cutout.png" alt="" />daniel®</a
+        >
+        <div class="socials" aria-label="Social profiles"></div>
+        <a
+          class="back-top icon-button"
+          href="#home"
+          aria-label="Back to top"
+          title="Back to top"
+          ><i data-lucide="arrow-up"></i
+        ></a>
+      </div>
+      <p class="footer-word">LET'S BUILD.</p>
+      <div class="footer-bottom">
+        <span>© <span class="year"></span> DANIEL</span
+        ><span>MADE IN MOLDOVA. BUILT FOR EVERYWHERE.</span
+        ><span>DESIGN · CODE · A LITTLE PERSONALITY</span>
+      </div>
     </footer>
-
-    <script src="script.js"></script>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
