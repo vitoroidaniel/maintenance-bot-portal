@@ -338,8 +338,14 @@
     right: 43%;
     top: 195px;
     color: var(--violet);
-    font-size: 72px;
-    line-height: 1;
+    width: 72px;
+    height: 72px;
+  }
+  .doodle-star svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5;
   }
   .ticker {
     background: var(--violet);
@@ -356,6 +362,11 @@
   .ticker span {
     margin: 0 45px;
     font-size: 24px;
+  }
+  .ticker svg {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
   }
   .services-stage {
     display: grid;
@@ -1457,7 +1468,8 @@
   .doodle-star {
     right: 28px;
     top: 180px;
-    font-size: 35px;
+    width: 35px;
+    height: 35px;
   }
   .hero-bottom {
     margin-top: 0;

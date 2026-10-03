@@ -27,6 +27,7 @@ import {
   Rocket,
   Plus,
   RotateCcw,
+  Asterisk,
 } from "lucide";
 import { initContact } from "./contact";
 
@@ -57,6 +58,7 @@ createIcons({
     Rocket,
     Plus,
     RotateCcw,
+    Asterisk,
   },
 });
 document.querySelector(".year")!.textContent = String(new Date().getFullYear());

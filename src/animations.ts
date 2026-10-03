@@ -172,6 +172,37 @@ function horizontalStory() {
   return () => section.classList.remove("is-pinned-work");
 }
 
+function flowStory() {
+  gsap.utils.toArray<HTMLElement>(".service-panel").forEach(panel => {
+    gsap.from(panel, {
+      y: 44, autoAlpha: 0, rotationX: 4, duration: 0.8, ease: "power2.out",
+      scrollTrigger: { trigger: panel, start: "top 88%", once: true },
+    });
+    const details = panel.querySelectorAll(".chat, .website-demo, .phone-demo, .deck-demo");
+    gsap.from(details, {
+      y: 18, opacity: 0, duration: 0.6, stagger: 0.14, ease: "power2.out",
+      scrollTrigger: { trigger: panel, start: "top 70%", once: true },
+    });
+  });
+  gsap.from(".work-viewport", {
+    y: 30, autoAlpha: 0, duration: 0.8,
+    scrollTrigger: { trigger: ".work-viewport", start: "top 90%", once: true },
+  });
+  gsap.utils.toArray<HTMLElement>(".work-item").forEach(item => {
+    gsap.fromTo(item.querySelector(".work-visual"), { rotationY: -4 }, {
+      rotationY: 4, ease: "none",
+      scrollTrigger: {
+        trigger: item, scroller: ".work-viewport", horizontal: true,
+        start: "left right", end: "right left", scrub: 0.4,
+      },
+    });
+  });
+  gsap.from(".chart span", {
+    scaleY: 0, transformOrigin: "bottom", duration: 0.65, stagger: 0.1,
+    scrollTrigger: { trigger: ".deck-demo", start: "top 85%", once: true },
+  });
+}
+
 function pointerDetails() {
   const cleanups: (() => void)[] = [];
   document
@@ -232,6 +263,7 @@ export function initAnimations() {
     const cleanups: (() => void)[] = [];
     // Pin spacing must exist before measuring the reveals further down the page.
     if (desktop) cleanups.push(serviceStory(), horizontalStory());
+    else flowStory();
     revealSections();
     const ink = { progress: 0 };
     if (draw) gsap.to(ink, {
